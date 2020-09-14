@@ -1,2 +1,2 @@
 ## Welcome to Election Methods
-# [week_1](posts/week_1.md)
+# [Week 1: How the Electoral College Affects Democrats?](posts/week_1.md)
