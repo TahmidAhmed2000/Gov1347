@@ -25,7 +25,7 @@ Another intersting thing to note here is that if we were to take a regression ju
 
 ![](../figures/Regression_Model_2016.png)
 
-
+The summary of the regression can be seen above and we can see the popular voting margin is signficiant, so it appears that there is a singificant relationship between both voting margin types. 
 
 
 
