@@ -15,5 +15,17 @@ If we compare the popular voting margins to the elecotral college voting margins
 
 One thing to note is that since electoral college depends on the population of each state, it seems to be consistent in number through most of middle America. What's interesting to note is that states with the highest population and thus most electoral votes tend to be states on the border, such as California, Florida and Texas. According to the [United Nations](https://www.un.org/esa/sustdev/natlinfo/indicators/methodology_sheets/oceans_seas_coasts/pop_coastal_areas.pdf), a possible reason for this that there are superior economic benefit in coastal areas due to the expansion of fisheries, tourism, human settlements, and access to ocean navigation. 
 
+Now that we see the patterns of both margins for the popular vote and elecoral college, let's analyze how these patterns are related. One way to do this is to run a regression between both types of margins. Below is a regression plot of how popular voting margins and elecoral college margins are related. 
+
+![](../figures/regmargins_states_2016.png)
+
+From our regression, we can see a positive correlation between both margins. Furthermore, while there outliers (New York and California), the regression is slightly positive. This makes sense condering there are only a few states that are overtly liberal. However, if we take a deeper look, specifically wehre the popular vote margin is close to zero, we can see that almost all those states were won by reublican. What this implies, however, is that democrats tend to lose states a good chunk of states to republicans despite scoring nearly as many voters. Essentially, democrats tend to lose more in tight races in states. 
+
+Another intersting thing to note here is that if we were to take a regression just from a negative popular vote margin to a popular margin close to zero, we can see that the electoral college share and popular voting share are less correlated. However, if we were to then take another regression just from a popular vote margin close to zero to an increasing posiitive margin, the regression appears to be a lot more correlated. 
+
+![](../figures/Regression_Model_2016.png)
+
+
+
 
 

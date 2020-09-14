@@ -146,6 +146,7 @@ plot_usmap(data = pv_margins_map_2016, regions = "states", values = "win_margin"
   theme(plot.title = element_text(size = 14, hjust = 0.5),
         plot.subtitle = element_text(size = 12, hjust = 0.5))
 
+
 ## Save popular voting margins amp
 ggsave("figures/PV_states_2016.png", height = 4, width = 8)
 
@@ -181,7 +182,8 @@ joineddata %>%
        caption = "Data collected from joined data set",
        y = "Electoral Vote Margin",
        x = "Popular Vote Margin") +
-  theme_tahmid
+  theme_tahmid 
+
 
 ## save resulting regression plot
 ggsave("figures/regmargins_states_2016.png", height = 4, width = 8)
@@ -192,4 +194,5 @@ democrat_reg <- lm(win_margin.y ~ democrat_margin_pop, data = joineddata)
 
 ## Evaluate summary of regression
 demregsummary <- summary(democrat_reg)
+demregsummary
 
