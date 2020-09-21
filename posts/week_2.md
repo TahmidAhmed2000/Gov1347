@@ -5,7 +5,7 @@
 Historically speaking, the economy has remained a critical factor affecting how people vote. One can argue that how the economy is doing is not so much of a bipartisan issue: everyone wants a strong economy. Thus, given that the economy can play a signficant role in how citizens vote, let's analyze more in depth of how certain economic predictors, such as inflation and unemployment, can tell us more about voting behaviors in 2020. 
 
 ### Model 1: How Inflation Impacts the Incumbent Party Popular Vote Share?
-In our first model, we will look at how inflation affects the incumbent party vote share. Since, we are focused mainly on the election timeline, we will look at Quarter 2 data. This is because Quarter 2 has recent economic data before the election date as opposed to Quarter 4, which has data after the election. Furthermore, the most recent and complete data in our dataset is the second quarter of the 2020 election. Thus, it makes sense to look at Q2 so we can make a prediction and compare it with the actual vote margin. 
+In our first model, we will look at how inflation affects the incumbent party vote share. Since, we are focused mainly on the election timeline, we will look at Quarter 2 data. This is because Quarter 2 has recent economic data before the election date as opposed to Quarter 4, which has data after the election. Furthermore, the most recent and complete economic data in our dataset is the second quarter of the 2020 election. Thus, it makes sense to look at Q2 so we can make a prediction and compare it with the actual vote margin. 
 
 ![](../figures/voteshar&inflation.png)
 
@@ -15,7 +15,7 @@ Furthermore, we can use cross validation with our data to make valid predictions
 
 ![](../figures/hist_infvs.png)
 
-In **Figure 2**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2020 Q2 vote margin for the incumbent party if we use inflation as an indicator: 
+In **Figure 2**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2020 vote margin for the incumbent party if we use inflation as an indicator: 
 
 + The mean difference between our prediction using out-of-sample validation and the true value is 0.97
 + The average error of the out-of-sample residuals is 2.00
@@ -30,7 +30,7 @@ In **Figure 3**, we can see that the relationship between unemployment rate and 
 
 ![](../figures/hist_unevs.png)
 
-Just like the previous model, we will also be doing a cross validation prediction model here as well. In **Figure 4**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2020 Q2 vote margin for the incumbent party if we use unemployment as an indicator: 
+Just like the previous model, we will also be doing a cross validation prediction model here as well. In **Figure 4**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2020 vote margin for the incumbent party if we use unemployment as an indicator: 
 
 + The mean difference between our prediction using out-of-sample validation and the true value is -1.00
 + The average error of the out-of-sample residuals is 2.15
@@ -45,7 +45,7 @@ In **Figure 5**, we can see that the relationship between RDI and the incumbent 
 
 ![](../figures/hist_rdivs.png)
 
-In **Figure 6**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2020 Q2 vote margin for the incumbent party if we use RDI as an indicator: 
+In **Figure 6**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2020 vote margin for the incumbent party if we use RDI as an indicator: 
 
 + The mean difference between our prediction using out-of-sample validation and the true value is -0.60
 + The average error of the out-of-sample residuals is 2.22
