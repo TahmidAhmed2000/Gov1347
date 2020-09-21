@@ -17,7 +17,7 @@ Furthermore, we can use cross validation with our data to make valid predictions
 
 In **Figure 2**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2020 vote margin for the incumbent party if we use inflation as an indicator: 
 
-+ The mean difference between our prediction using out-of-sample validation and the true value is 0.97
++ The mean difference between our prediction using out-of-sample validation and the true value (2016 election) is 0.97
 + The average error of the out-of-sample residuals is 2.00
 + Our prediction we get using out-of-sample validation is 49.75% with a 95% confidence interval of (37.08, 62.43)
 
@@ -32,7 +32,7 @@ In **Figure 3**, we can see that the relationship between unemployment rate and 
 
 Just like the previous model, we will also be doing a cross validation prediction model here. In **Figure 4**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2020 vote margin for the incumbent party if we use unemployment as an indicator: 
 
-+ The mean difference between our prediction using out-of-sample validation and the true value is -1.00
++ The mean difference between our prediction using out-of-sample validation and the true value (2016 election) is -1.00
 + The average error of the out-of-sample residuals is 2.15
 + Our prediction we get using out-of-sample validation is 52.17% with a 95% confidence interval of (34.26, 70.09)
 
@@ -47,7 +47,7 @@ In **Figure 5**, we can see that the relationship between RDI and the incumbent 
 
 In **Figure 6**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2020 vote margin for the incumbent party if we use RDI as an indicator: 
 
-+ The mean difference between our prediction using out-of-sample validation and the true value is -0.60
++ The mean difference between our prediction using out-of-sample validation and the true value (2016 election) is -0.60
 + The average error of the out-of-sample residuals is 2.22
 + Our prediction we get using out-of-sample validation is 52.17% with a 95% confidence interval of (34.26, 70.09)
 
