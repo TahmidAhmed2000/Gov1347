@@ -32,7 +32,7 @@ dat %>%
   labs(title = "Q2 Inflation Effects on Incumbent Party PV",
        subtitle = "Y = 53.60 - 0.02 * X",
        caption = "Figure 1") +
-  xlab("Q2 Inflation (X)") +
+  xlab("Q2 Inflation Index (X)") +
   ylab("Incumbent party PV (Y)") +
   theme_bw() 
 
@@ -132,9 +132,9 @@ dat %>%
   geom_text(size = 2) +
   geom_smooth(method="lm", formula = y ~ x) +
   labs(title = "Q2 Unemployment Effects on Incumbent Party PV",
-       subtitle = "Y = 51.88 - 0.02 * X",
+       subtitle = "Y = 51.88 + 0.02 * X",
        caption = "Figure 3") +
-  xlab("Q2 Unemployment (X)") +
+  xlab("Q2 Unemployment Rate (X)") +
   ylab("Incumbent party PV (Y)") +
   theme_bw() 
 
