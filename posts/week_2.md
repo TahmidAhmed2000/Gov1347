@@ -21,6 +21,23 @@ In **Figure 2**, we can see that mean of out-of-sample residuals are mostly arou
 + The average error of the out-of-sample residuals is 2.00
 + Our prediction we get using out-of-sample validation is 49.75% with a confidence interval of (37.08, 62.43)
 
+### Model 2: How Unemployment Impacts the Incumbent Party Popular Vote Share?
+In our second model, we will look at how unemployment affects the incumbent party vote share. Unemployment is a great indicator of how the economy is doing, and keeping it under 2% remains one of the top priority of the Federal Reserve.
+
+![](../figures/voteshare&unemployment.png)
+
+In **Figure 3**, we can see that the relationship between unemployment and the incumbent party vote share does not seem to be closely related. In this case, r = .006 (of inflation), showing that the relationship between inflation and vote share is not strong. This insinuates that voters seem to not be strongly affected by unemployment, which is suprsing to be frank. Logically, higher unempoyment means that fewer people have jobs, so it appears that voting behaviors are not impacted too much by that. This could be because during periods of recession, voters may still vote for the incumbent because they may believe the incumbent can help the country get out of recession. 
+
+![](../figures/hist_unevs.png)
+
+Just like the previous model, we will also be doing a cross validation prediction model here as well. In **Figure 4**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2016 Q2 vote margin for the incumbent party if we use unemployment as an indicator: 
+
++ The mean difference between our prediction using out-of-sample validation and the true value is -1.00
++ The average error of the out-of-sample residuals is 2.15
++ Our prediction we get using out-of-sample validation is 52.17% with a confidence interval of (34.26, 70.09)
+
+
+
 
 
 

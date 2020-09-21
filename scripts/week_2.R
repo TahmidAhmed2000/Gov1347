@@ -109,8 +109,8 @@ outsamp_errorsune <- sapply(1:1000, function(i){
 mean(abs(outsamp_errorsune))
 
 hist(outsamp_errorsune,
-     xlab = "",
-     main = "mean out-of-sample residual with Unemployment\n(1000 runs of cross-validation)")
+     xlab = "Figure 4",
+     main = "mean out-of-sample residual with unemployment\n(1000 runs of cross-validation)")
 
 ## Prediction for 2020 (unemployment)
 Unemployment_new <- economy_df %>%
@@ -126,11 +126,16 @@ dat %>%
   geom_text(size = 2) +
   geom_smooth(method="lm", formula = y ~ x) +
   labs(title = "Q2 Unemployment Effects on Incumbent Party PV",
-       subtitle = "Y = 53.63 - 0.02 * X",
-       caption = "Figure 2") +
+       subtitle = "Y = 51.88 - 0.02 * X",
+       caption = "Figure 3") +
   xlab("Q3 Unemployment (X)") +
   ylab("Incumbent party PV (Y)") +
   theme_bw() 
+
+ggsave("figures/voteshare&unemployment.png", height = 4, width = 8)
+
+cor(dat$unemployment, dat$pv2p)
+
 
 ## fit a model of Q2 RDI effects on Incumbent Party PV
 lm_econrdi <- lm(pv2p ~ RDI, data = dat)
