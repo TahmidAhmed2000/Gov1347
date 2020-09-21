@@ -65,10 +65,8 @@ outsamp_errorsinf <- sapply(1:1000, function(i){
 mean(abs(outsamp_errorsinf))
 
 hist(outsamp_errorsinf,
-     xlab = "",
-     main = "mean out-of-sample residual\n(1000 runs of cross-validation)")
-ggsave("figures/hist_infvs.png", height = 4, width = 8)
-
+     xlab = "Figure 2",
+     main = "mean out-of-sample residual with inflation\n(1000 runs of cross-validation)")
 
 ## Prediction for 2020 (inflation)
 Inflation_new <- economy_df %>%
