@@ -26,18 +26,18 @@ In our second model, we will look at how unemployment affects the incumbent part
 
 ![](../figures/voteshare&unemployment.png)
 
-In **Figure 3**, we can see that the relationship between unemployment rate and the incumbent party vote share does not seem to be closely related. In this case, r = .006 (of unemployment), showing that the relationship between unemployment and vote share is not strong. This insinuates that voters seem to not be strongly affected by unemployment, which is suprsing to be frank. Logically, higher unempoyment means that fewer people have jobs, so it appears that voting behaviors are not impacted too much by that. This could be because during periods of recession (when unemployment is high), voters may still vote for the incumbent because they may believe the incumbent can help the country get out of recession. 
+In **Figure 3**, we can see that the relationship between unemployment rate and the incumbent party vote share does not seem to be closely related. In this case, r = .006 (of unemployment), showing that the relationship between unemployment and vote share is not strong. This insinuates that voters seem to not be strongly affected by unemployment, which is surprising to be frank. Logically, higher unempoyment means that fewer people have jobs, so it appears that voting behaviors are not impacted too much by that. This could be because during periods of recession (when unemployment is high), voters may still vote for the incumbent because they may believe the incumbent can help the country get out of recession. 
 
 ![](../figures/hist_unevs.png)
 
-Just like the previous model, we will also be doing a cross validation prediction model here as well. In **Figure 4**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2020 vote margin for the incumbent party if we use unemployment as an indicator: 
+Just like the previous model, we will also be doing a cross validation prediction model here. In **Figure 4**, we can see that mean of out-of-sample residuals are mostly around zero, so our prediction model should be valid. The following bullets tell us about our prediction model for 2020 vote margin for the incumbent party if we use unemployment as an indicator: 
 
 + The mean difference between our prediction using out-of-sample validation and the true value is -1.00
 + The average error of the out-of-sample residuals is 2.15
 + Our prediction we get using out-of-sample validation is 52.17% with a 95% confidence interval of (34.26, 70.09)
 
 ### Model 3: How Real Disposable Income Impacts the Incumbent Party Popular Vote Share?
-In our third model, we will look at how real disposable income (RDI) affects the incumbent party vote share. RDI is another great indicator of how the economy is doing as it shows how much citizens make after tax. A higher average RDI is usually a strong indicator that GDP is high and inflation is relatively low as there is enough money being circulated to pay individuals a higher level and consumer spending increases. 
+In our third model, we will look at how real disposable income (RDI) affects the incumbent party vote share. RDI is another great indicator of how the economy is doing as it shows how much citizens make after tax. A higher average RDI is usually a strong indicator that GDP is high and inflation is relatively low as there is enough money being circulated to pay individuals a higher level and there is an increase of consumer spending. 
 
 ![](../figures/voteshare&rdi.png)
 

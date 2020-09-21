@@ -71,7 +71,7 @@ mean(abs(outsamp_errorsinf))
 ## histogram with inflation
 hist(outsamp_errorsinf,
      xlab = "Figure 2",
-     main = "mean out-of-sample residual with inflation\n(1000 runs of cross-validation)")
+     main = "mean out-of-sample residual (inflation)\n(1000 runs of cross-validation)")
 
 ## Prediction for 2020 (inflation)
 Inflation_new <- economy_df %>%
@@ -117,7 +117,7 @@ mean(abs(outsamp_errorsune))
 ## histogram with unemployment 
 hist(outsamp_errorsune,
      xlab = "Figure 4",
-     main = "mean out-of-sample residual with unemployment\n(1000 runs of cross-validation)")
+     main = "mean out-of-sample residual (unemployment)\n(1000 runs of cross-validation)")
 
 ## Prediction for 2020 (unemployment)
 Unemployment_new <- economy_df %>%
@@ -194,7 +194,7 @@ mean(abs(outsamp_errorsrdi))
 ## histogram with RDI 
 hist(outsamp_errorsrdi,
      xlab = "Figure 6",
-     main = "mean out-of-sample residual with RDI\n(1000 runs of cross-validation)")
+     main = "mean out-of-sample residual (RDI)\n(1000 runs of cross-validation)")
 
 ## Prediction for 2020 (unemployment)
 RDI_new <- economy_df %>%
