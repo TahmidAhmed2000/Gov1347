@@ -33,7 +33,7 @@ graph2016 <- ggplot(poll_ratings, aes(x = rating_2016)) +
   labs(title = "Distribution of Poll Grades for 2016 Election",
        x = "2016 Poll Grades",
        y = "Count",
-       caption = "Source: Five-Thirty-Eight") +
+       caption = "Source: FiveThirtyEight") +
   theme_classic()
 graph2016
 graph2020 <- ggplot(poll_ratings, aes(x = rating_2020)) +
@@ -42,8 +42,11 @@ graph2020 <- ggplot(poll_ratings, aes(x = rating_2020)) +
   labs(title = "Distribution of Poll Grades for 2020 Election",
        x = "2020 Poll Grades",
        y = "Count",
-       caption = "Source: Five-Thirty-Eight") +
+       caption = "Source: FiveThirtyEight") +
   theme_classic()
 graph2020
+
 plot_grid(graph2016, graph2020)
+
+ggsave("figures/pollgrades.png")
 
