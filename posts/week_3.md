@@ -6,4 +6,9 @@ Election forecasts are often very volatile but they give citizens a sense of wha
 
 ## How does FiveThirtyEight's Model work?
 
+### Step 1: Collect, analyze, and adjust polls
+
++ FiveThirtyEight constructs both national and state polling averages, where they are weighted based on their sample size and pollster rating. Polling averages are simply weighted and follows a trend line that is aggressive in nature.
++ Polling averages are adjusted according to three different types: likely voter adjustment, house effects adjustment, and timeline adjustment. For the sake of brevity for this blog, more intuition for these adjustments can be seen in the company's website. 
++ Polling averages 
 
