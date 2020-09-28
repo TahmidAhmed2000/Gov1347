@@ -19,7 +19,8 @@ url_2020 <- read_csv(url(url_2020))
 url_2020
 
 
-# Joining and cleaning data
+# Joining and cleaning data. Focus on shared polls for both years as I want a
+# more controlled standard of comparison.
 poll_ratings <- url_2020 %>%
   left_join(url_2016, by = "Pollster") %>%
   mutate(rating_2016 = `538 Grade.y`,

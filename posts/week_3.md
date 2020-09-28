@@ -12,7 +12,7 @@ Election forecasts are often very volatile but they give citizens a sense of wha
 + Polling averages are adjusted according to different types: likely voter adjustment, house effects adjustment, timeline adjustment, and [convention bounce adjustment](https://fivethirtyeight.com/features/measuring-a-convention-bounce/). Note, however, that the convention bound adjustments will be small due to fewer conventions and debates as a result of Covid and social distancing. 
 
 ![](../figures/pollgrades.png)
-**Figure 1.**
+**Figure 1.** Note that we are looking at only shared pollsters for both years to create a more controlled enviornment.
 
 This is the snapshot of the distribution of FiveThirtyEight grades on polls. These polls are used in their model, but it's important to understand that the polls are not super accurate of the general public. This explains why FiveThirtyEight spends so much care adjusting for polls. 
 
@@ -60,7 +60,7 @@ This is the snapshot of the distribution of FiveThirtyEight grades on polls. The
 While both models have striking differences, they do share some common themes. Here are the three most signficant similarities. 
  
 + Both models factor in polls and fundamentals. Both models pay attention to polls (although The Economist does place less of an empahsis on state polls compared to FiveThirtyEight) and adjust for their bias accordingly. Additionally, both models use economic conditions as well as incumbency trends as indicators in their models. 
-+ Both models apply multiple indicies to their models, including a partisan lean index and an economic index, to furhter adjust their models. 
++ Both models apply multiple indicies to their models, including a partisan lean index and an economic index, to further adjust their models. 
 + Both models conduct numerous simulations to provide a plausible range of outcomes. Furthermore, many key statistics like polling errors and residuals are calculated in each simulation to provide some range of confidence for their predictions. 
 
 
