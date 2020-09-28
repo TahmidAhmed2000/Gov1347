@@ -26,7 +26,7 @@ poll_ratings <- url_2020 %>%
          rating_2020 = `538 Grade.x`) %>%
   drop_na()
 
-
+# Graph of poll grades in 2016
 graph2016 <- ggplot(poll_ratings, aes(x = rating_2016)) +
   geom_bar() +
   theme(legend.position = "none") + 
@@ -36,6 +36,8 @@ graph2016 <- ggplot(poll_ratings, aes(x = rating_2016)) +
        caption = "Source: FiveThirtyEight") +
   theme_classic()
 graph2016
+
+# Graph of poll grades in 2020
 graph2020 <- ggplot(poll_ratings, aes(x = rating_2020)) +
   geom_bar() +
   theme(legend.position = "none") + 
@@ -46,6 +48,7 @@ graph2020 <- ggplot(poll_ratings, aes(x = rating_2020)) +
   theme_classic()
 graph2020
 
+# Combined plot of both graphs
 plot_grid(graph2016, graph2020)
 
 ggsave("figures/pollgrades.png")
