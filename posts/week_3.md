@@ -27,6 +27,9 @@ This is the snapshot of the distribution of FiveThirtyEight grades on polls. The
 + The model tries to account for four types of uncertainty, including national drift, national election day error, correlated state error, and state-specific error. More about these errors can be found on their website, but complex mathematical formulas are applied to account for uncertainty. 
 + Once the model is fully complete, the company runs **40,000 simulations** and calculates polling errors and a residual to each state. 
 
+![](../figures/Fivethirtyeight.png)
+**Figure 3. FiveThirtyEight Simulations**
+
 ## How does The Economist's model work?
 
 ### Step 1: Predict national popular vote
@@ -49,6 +52,8 @@ This is the snapshot of the distribution of FiveThirtyEight grades on polls. The
 
 + The model uses a statistical technique called **Markov Chain Monte Carlo**, "which explores thousands of different values for each parameter in [their] model, and evaluates both how well they explain the patterns in the data and how plausible they are given the expectations from our prior." 
 + The result is **20,000 paths** that the election can take and is used to determine the overall result of the election. 
+![](../figures/Economist.png) 
+**Figure 2. The Economist Simulations**
 
 ## Similarities between both models
 
@@ -66,14 +71,6 @@ Let's now look at the key difference between both models:
 + The most important key difference is that the FiveThirtyEight model emphasizes polling while The Economist model emphasizes fundamentals. The reason that FiveThrityEight undervalues fundamentals is that there are so many ways to measure the economy while there is only a small sample of reliable economic data. Silver argues that even though these models may be accurate in predicting past elections that already have happened, they are not effective in predicting the future. To further support this, Silver shows that the relationship between economic conditions and incumbent party's is quite noisy. According to his model, the economy only explains about 30% of the variation in incumbent's performance. As a result, the FiveThirtyEight model relies closer to poll as the election nears because the economy is quite volatile and it is hard to adjust for that volatility over time. 
   On the other hand, The Economist model extensively uses fundamentals. The Economist notes that using fundamental models are easy to over-fit, but they can apply machine learning techniques to account for this. The Economist values fundamentals because fundamental forecasts are quite stable and factor in how likely voters are to change their minds once they "tune in to politics and their dormant partisan leanings kick in."
 + Another difference is that while the FiveThirtyEight model is essentially an ensemble model, The Economist model is a bayesian model. Thus, the FiveThirtyEight uses a set of forecasts for each state, which is combined to get a national snapshot. However, The Economist model heavily uses bayesian modeling, where the model is constantly updating its prior to predict the posterior. Furthermore, The Economist model uses more statistical concepts and themes seen in probability. For example, the model assumes that the distribution of national popular votes is beta and the model uses Monte Carlo simulations as opposed to general simulations run by FiveThirtyEight. 
-
-![](../figures/Economist.png) 
-**Figure 2. The Economist Simulations**
-
-![](../figures/Fivethirtyeight.png)
-**Figure 3. FiveThirtyEight Simulations**
-
-Above are the predictions of both models (The Economist is top, FiveThirtyEight is bottom). I am interested to see which one is more correct when the actual election results are announced. 
 
 ## Conclusion
 While both models are very strong, I would choose the FiveThirtyEight model as it is the better appraoch in my opinion. I think the machine learning techniques and Monte Carlo simulations are genius in The Economist model; however, I agree with Nate Silver that is it generally hard to account for the volatility of fundamentals. While The Economist model attempts to account for this using machin learning methods, the model fails to take into account that fundamentals are not good at predicting future elections. As Nate Silver explains, there is not too much reliable data relating to fundamentals and the relationship between economic conditions and incumbent party's performance remains noisy, making it hard to predict future elections. Silver also mentions how fundamentals are good at predicting past elections but not future ones. The Economist, heavily focused that fundamentals are good at predicting past elections, fails to recognize that fundamentals are not good at predicting future events. The model is possibly too caught up in adjusting its prior that the model fails to take into account that the condition of the economy at any given moment before the election may not resemble what it will eventually look like during the election period. Thus, given that the Economist fails to account for unpredictability of fundamentals for the future, I think FiveThirtyEight's model is better in nature. 
