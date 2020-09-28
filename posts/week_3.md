@@ -2,14 +2,14 @@
 # 9/27 - Taking a Deep Dive into FiveThirtyEight and The Economist's Election Forecasts
 
 ## Overview
-Election forecasts are often very volatile but they give citizens a sense of what the upcoming election may look like. Two such popular forecasts are [FiveThirtyEight's Presidential Forecast](https://projects.fivethirtyeight.com/2020-election-forecast/) and [The Economists' Presidential Forecast](https://projects.economist.com/us-2020-forecast/president). While both models share many similarities, they are both different: the FivethirtyEight model seems to place more of an emphasis on polls while The Economist's models appears to place more of an emphasis on fundamentals. For clarification, "fundamentals" are a political science term for structural factors (such as the economy and incumbency) that impact voter decisions.
+Election forecasts are often very volatile but they give citizens a sense of what the upcoming election may look like. Two such popular forecasts are [FiveThirtyEight's Presidential Forecast](https://projects.fivethirtyeight.com/2020-election-forecast/) and [The Economists' Presidential Forecast](https://projects.economist.com/us-2020-forecast/president). While both models share many similarities, they are both different: the FivethirtyEight model seems to place more of an emphasis on polls while The Economist's models appears to place more of an emphasis on fundamentals. For clarification, "fundamentals" are a political science term for structural factors (such as the economy and incumbency) that impact voter decisions. Let's take a deep dive into both models and evaluate which one is better. 
 
 ## How does FiveThirtyEight's model work?
 
 ### Step 1: Collect, analyze, and adjust polls
 
 + FiveThirtyEight constructs both national and state polling averages, where they are weighted based on their sample size and pollster rating.
-+ Polling averages are adjusted according to different types: likely voter adjustment, house effects adjustment, timeline adjustment, and [convention bounce adjustment](https://fivethirtyeight.com/features/measuring-a-convention-bounce/). Note, however, that the counvention bound adjustments will be small due to fewer conventions and debates as a result of Covid and social distancing. 
++ Polling averages are adjusted according to different types: likely voter adjustment, house effects adjustment, timeline adjustment, and [convention bounce adjustment](https://fivethirtyeight.com/features/measuring-a-convention-bounce/). Note, however, that the convention bound adjustments will be small due to fewer conventions and debates as a result of Covid and social distancing. 
 
 ![](../figures/pollgrades.png)
 **Figure 1.**
