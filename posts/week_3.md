@@ -13,7 +13,7 @@ Election forecasts are often very volatile but they give citizens a sense of wha
 
 ![](../figures/pollgrades.png)
 
-This is snapshot of the distribution of FiveThirtyEight grades on polls. These polls are used in their model, but it's important to understnd that the polls are not super accurate of the general public. This explains why the company spends so much care to adjusting for polls. 
+This is the snapshot of the distribution of FiveThirtyEight grades on polls. These polls are used in their model, but it's important to understnd that the polls are not super accurate of the general public. This explains why the company spends so much care to adjusting for polls. 
 
 ### Step 2: Combining polls with fundamentals
 
@@ -66,7 +66,12 @@ Let's now look at the key difference between both models:
   On the other hand, The Economist model extensively uses fundamentals. The Economist notes that using fundamental models are easy to over-fit, but they can apply machine learning techniques to account for this. The Economist values fundamentals because fundamental forecasts are quite stable and factor in how likely voters are to change their minds once they "tune in to politics and their dormant partisan leanings kick in."
 + Another difference is that while the FiveThirtyEight model is essentially an ensemble model, The Economist model is a bayesian model. Thus, the FiveThirtyEight uses a set of forecasts for each state, which is combined to get a national snapshot. However, The Economist model heavily uses bayesian modeling, where the model is constantly updating its prior to predict the posterior. Furthermore, The Economist model uses more statistical concepts and themes seen in probability. For example, the model assumes that the distribution of national popular votes is beta and the model uses Monte Carlo simulations as opposed to general simulations run by FiveThirtyEight. 
 
-![](../figures/Economist.png) ![](../figures/Fivethirtyeight.png)
+![](../figures/Economist.png) 
+#### Figure 2.
+
+![](../figures/Fivethirtyeight.png)
+#### Figure 3
+
 
 Above are the predictions of both models. I am interested to see which one is more correct when the actual election results are announced. 
 
