@@ -48,12 +48,21 @@ This is snapshot of the distribution of FiveThirtyEight grades on polls. These p
 
 + The model uses a statistical technique called **Markov Chain Monte Carlo**, "which explores thousands of different values for each parameter in [their] model, and evaluates both how well they explain the patterns in the data and how plausible they are given the expectations from our prior." 
 + The result is **20,000 paths** that the election can take and is used to determine the overall result of the election. 
+
 ## Comparing both models
 
-While both models have striking differences, they do share some common themes:
+While both models have striking differences, they do share some common themes. Here are 3 the most signficant similarities. 
  
 + Both models factor in polls and fundamentals. Both models pay close attention to polling averages both state-wide and nationally and adjust for their bias accordingly. Additionally, both models use economic as well as incumbency trends as indicators in their models. 
-+ Both models conduct numerous simulations to provide a 
++ Both models applies multiple indicies to their models, including a partisan lean index and an economic index, to furhter adjust their models. 
++ Both models conduct numerous simulations to provide a plausible range of outcomes. Furthermore, many key statistics like polling errors and residuals are caluclated in each simulation. 
+
+
+## Differences between both models
+
+Let's now look at the key difference between both models:
+
++ 
 
 
 
