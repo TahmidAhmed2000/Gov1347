@@ -27,7 +27,6 @@ poll_ratings <- url_2020 %>%
   drop_na()
 
 
-
 graph2016 <- ggplot(poll_ratings, aes(x = rating_2016)) +
   geom_bar() +
   theme(legend.position = "none") + 
