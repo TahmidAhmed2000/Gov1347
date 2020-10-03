@@ -48,13 +48,13 @@ pm_df <- popvote_df %>%
             group_by(year,party))
 
 # pm model 
-pm_model <- lm(pv2p ~ net_approve + GDP_growth_qt + avg_support + unemployment + incumbent, data= pm_df)
+pm_model <- lm(pv2p ~ net_approve + GDP_growth_qt + + unemployment + avg_support + incumbent, data= pm_df)
 summary(pm_model)
 
 stargazer(pm_model,
           title = "10-Week and 2-Week Polling Models",
           header = FALSE,
-          covariate.labels = c("Net Approval", "GDP Growth Rate", "Average Support (Polls)", "Unemployment", "Incumbent Party"),
+          covariate.labels = c("Net Approval", "GDP Growth Rate", "Unemployment", "Average Support (Polls)", "Incumbent Party"),
           dep.var.labels = "Two-Party Vote Share",
           omit.stat = c("f", "rsq"),
           notes.align = "l",
