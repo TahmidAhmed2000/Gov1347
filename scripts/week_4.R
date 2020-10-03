@@ -52,7 +52,7 @@ pm_model <- lm(pv2p ~ net_approve + GDP_growth_qt + + unemployment + avg_support
 summary(pm_model)
 
 stargazer(pm_model,
-          title = "10-Week and 2-Week Polling Models",
+          title = "2020 Election Prediction Model",
           header = FALSE,
           covariate.labels = c("Net Approval", "GDP Growth Rate", "Unemployment", "Average Support (Polls)", "Incumbent Party"),
           dep.var.labels = "Two-Party Vote Share",
