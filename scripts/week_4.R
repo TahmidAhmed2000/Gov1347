@@ -10,7 +10,6 @@ approval_df   <- read_csv("data/approval_gallup_1941-2020.csv")
 poll_df       <- read_csv("data/pollavg_1968-2016.csv")
 
 ### Trump's Approval Ratings Trends
-
 approval_Trump <- approval_df %>%
   filter(president == "Donald Trump")
 
@@ -24,9 +23,9 @@ approval_Trump %>%
 
 ####################### Prediction Model ########################
 
-# time-for-change data set, comprised of second-quarter GDP, 
-# approval ratings, incumbency status and popular vote data sets
-# filtered for only incumbent party candidates
+# The pm data set consists of second-quarter GDP, unemployment, approval
+# ratings, polling approval ratings, incumbency status and popular vote data
+# sets filtered for only incumbent party candidates
 pm_df <- popvote_df %>%
   filter(incumbent_party) %>%
   select(year, candidate, party, pv, pv2p, incumbent) %>%
@@ -48,7 +47,7 @@ pm_df <- popvote_df %>%
             filter(weeks_left == 6) %>% 
             group_by(year,party))
 
-# time for change model 
+# pm model 
 pm_model <- lm(pv2p ~ net_approve + GDP_growth_qt + avg_support + unemployment + incumbent, data= pm_df)
 summary(pm_model)
 
