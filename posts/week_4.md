@@ -20,7 +20,7 @@ Thus, my prediction model is essentially a time for change model with a twist. I
 
 ![](../figures/pmtable.png)
 
-From our table, we can see that average support from polls and net approval seems to be the most signficiant predictors as their p-values appears to be the lowest. Their low p-values also lends credibility to Silver's argument that polling support is a significant predictor for elections. Furthermore, we can also see that the adjusted R-Square is 0 **.831** and the Residual Std. Error is **1.484**. 
+From our table, we can see that average support from polls and net approval seems to be the most signficiant predictors as their p-values appears to be the lowest. Their low p-values also lends credibility to Silver's argument that polling support is a significant predictor for elections. Furthermore, we can also see that the adjusted R-Square is **0.831** and the Residual Std. Error is **1.484**. 
 
 ## Analyzing our prediction model
 
@@ -31,7 +31,7 @@ To analyze this model, we will look at the model's predictive ability on an incu
 + The mean difference between our prediction and the true value is **-2.651**.
 + Mean Out of Sample Error is **3.015**.
 
-Given these values, it appears that this prediction model may not be super accurate because the mean out of sample error is quite high and the average difference between our prediction and true value is -2.651. It would clearly be netter if these numbers were smaller, but, nevertheless, the model is something that can be improved upon. 
+Given these values, it appears that this prediction model may not be super accurate because the mean out of sample error is quite high and the average difference between our prediction and true value is -2.651. It would clearly be better if these numbers were smaller, but, nevertheless, the model is something that can be improved upon. 
 
 ## Predicting the election
 
