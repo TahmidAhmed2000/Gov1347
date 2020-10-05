@@ -21,6 +21,10 @@ approval_Trump %>%
        caption = "Source: Gallup") +
   theme_classic()
 
+ggsave("figures/Trumpapproval.png")
+
+
+
 ####################### Prediction Model ########################
 
 # The pm data set consists of second-quarter GDP, unemployment, approval
@@ -40,27 +44,59 @@ pm_df <- popvote_df %>%
   left_join(
     economy_df %>%
       filter(quarter == 2) %>%
-      select(GDP_growth_qt, unemployment, year),
+      select(GDP_growth_qt, year),
     by="year"
   ) %>%
   left_join(poll_df %>% 
             filter(weeks_left == 6) %>% 
-            group_by(year,party))
+            group_by(year,party)) 
 
 # pm model 
-pm_model <- lm(pv2p ~ net_approve + GDP_growth_qt + + unemployment + avg_support + incumbent, data= pm_df)
+pm_model <- lm(pv2p ~ net_approve + GDP_growth_qt + avg_support + incumbent, data = pm_df)
 summary(pm_model)
 
 stargazer(pm_model,
           title = "2020 Election Prediction Model",
           header = FALSE,
-          covariate.labels = c("Net Approval", "GDP Growth Rate", "Unemployment", "Average Support (Polls)", "Incumbent Party"),
+          covariate.labels = c("Net Approval", "GDP Growth Rate", "Average Support (Polls)", "Incumbent Party"),
           dep.var.labels = "Two-Party Vote Share",
           omit.stat = c("f", "rsq"),
           notes.align = "l",
           font.size = "tiny",
           column.sep.width = "1pt")
 
+###### In-Sample Fit
+
+#r-squared value: 0.843
+summary(pm_model)$r.squared
+
+# the mean squared error: 1.415
+mse <- mean((pm_model$fitted.values - pm_model$model$pv2p)^2)
+sqrt(mse)
+
+###### Out-Of-Sample Error
+
+#leaving one out validation: -2.561
+outsamp_mod  <- lm(pv2p ~ net_approve + GDP_growth_qt + avg_support + incumbent,
+                   pm_df[pm_df$year != 2016,])
+outsamp_pred <- predict(outsamp_mod, pm_df[pm_df$year == 2016,])
+outsamp_true <- pm_df$pv2p[pm_df$year == 2016] 
+outsamp_pred - outsamp_true
+
+
+#cross validation: 2.803
+outsamp_errors <- sapply(1:1000, function(i){
+  years_outsamp <- sample(pm_df$year, 8)
+  outsamp_mod <- lm(pv2p ~ net_approve + GDP_growth_qt + avg_support + incumbent,
+                    pm_df[!(pm_df$year %in% years_outsamp),])
+  outsamp_pred <- predict(outsamp_mod,
+                          newdata = pm_df[pm_df$year %in% years_outsamp,])
+  outsamp_true <- pm_df$pv2p[pm_df$year %in% years_outsamp]
+  mean(outsamp_pred - outsamp_true)
+})
+
+#mean out of sample error
+mean(abs(outsamp_errors), na.rm = T)
 
 ######################### Model Predictions ##########################
 
@@ -68,11 +104,6 @@ stargazer(pm_model,
 GDP_SecondQuarter_2020 <- economy_df %>%
   subset(year == 2020 & quarter == 2) %>%
   select(GDP_growth_qt)
-
-#2020 Unemployment
-unemployment_2020 <- economy_df %>%
-  subset(year == 2020 & quarter == 2) %>%
-  select(unemployment)
 
 #2020 Best Polls looking at Q2 and Q3
 url_poll_2020 = "https://raw.githubusercontent.com/cassidybargell/election_analytics/gh-pages/data/polls_2020.csv"
@@ -89,10 +120,9 @@ net_approval_2020 = 41-56
 dat_2020 <- data.frame(net_approve = net_approval_2020, 
                        GDP_growth_qt = GDP_SecondQuarter_2020,
                        avg_support = poll_2020_mean,
-                       unemployment = unemployment_2020,
                        incumbent = TRUE)
 
-# pm model 2020 prediction for Trump
+# pm model 2020 prediction for Trump: 49.789
 prediction_2020 = predict(pm_model, newdata = dat_2020)
 prediction_2020
 
