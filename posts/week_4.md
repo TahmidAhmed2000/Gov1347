@@ -5,10 +5,9 @@
 
 Given that the election is soon, it is important that we understand the advantages and disadvantages of incumbency. Some advantages of incumbency include more media coverage, "pork" benefits, and access to campaign finance . However, there are a couple of disadvantages: incumbency might not matter if the nation is already polarized, there is incumbency fatigue, and many may blame the incumbent if the nation is under a recession or disaster. Since incumbency is also a fundamental, we can use incumbency as an indicator for part of a larger prediction model for the 2020 election. Below I will demonstrate the role of incumbency on my model. 
 
-
 ## Analyzing Trump's approval ratings
 
-![](../figures/pollgrades.png)
+![](../figures/Trumpapproval.png)
 **Figure 1**
 
 Before I dig into my model, it is important that we look at Trump's approval ratings over the years. The president's approval ratings is clearly very volatile, rapidly changing throughout time. It is important to note that his approval rating was at an all time high in early 2020, which many would argue because of his role in a booming economy. However, after the president's failure to manage the Covid pandemic, his approval ratings have sharply decreased well within months. His approval ratings seems to be steadily increasing now, however, perhaps because the nation is slowly adjusting to the new atmosphere of social distancing and safety precautions. 
@@ -37,9 +36,3 @@ Given these values, it appears that this prediction model may not be super accur
 ## Predicting the election
 
 After running our model, our prediction for 2020 is that Trump's two-party vote share will be **49.79%** with a 95% confidence interval of **(42.976, 56.602)**. This is close to 50%, which can be possible in the actual election. I think by adding polling support to my model, the prediction is higher than what would be for the time for change model. This is because if we look at the time for change predictors, it is safe to assume that the Covid pandemic has singificantly played an impact on the economy and Trump's overall approval ratings. However, the time for change model fails to account for ardent supporters of Trump and undecided voters that may ultimately vote for Trump. By adding polling support as an indicator, we are essentially accounting for this group of people. Thus, we may see an increase in Trump's predicted two-party vote share as a result. 
-
-
-
-
-
-
