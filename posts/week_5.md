@@ -11,7 +11,7 @@ Figure 1.
 Sourced from the [Wesleyan Media Project](https://mediaproject.wesleyan.edu/releases-100120/#data), Figure 1 indicates the comparison in spending between President Trump and Presidential Candidate Joe Biden on Facebook advertisements. While there are other social media that both candidates use to promote their campaigns, such as Twitter and Instagram, Facebook is generally the most popular social media for advertisements. There are three key pieces of information we can gather from this figure:
 
 + Biden has spent **$1,705,188** more than Donald Trump on Facebook ads in 2020. 
-+ While Biden has spent more on Facebook ads than Donald Trump, the **preisdent is a more active user on social media**.
++ While Biden has spent more on Facebook ads than Donald Trump, the **president is a more active user on social media**.
 + The fact that both candidates have spent close to **$50 million on Facebook ads** indicates that both candidates value social media advertisements fairly high.
 
 While Biden has spent more on advertisements on Facebook than Trump, Trump is a more active user on social media. It would be interesting to argue if Trump's presence on social media can be looked upon as a form of advertisement in itself. It possibly may be the case that Donald Trump has spent less than Biden on social media advertising because the president already knows his tweets and posts do enough to solidify his political base. 
@@ -19,12 +19,12 @@ While Biden has spent more on advertisements on Facebook than Trump, Trump is a 
 
 ## Social media's influence on presidential elections
 
-Let's analyze the effects of social media on presidential elections. While there is limited data on social media spending by candidates, we can look at the 2016 election to get an estimate of how the election might pan out in 2020. 
+Let's analyze the effects of social media on presidential elections. We can look at the 2016 election to get an estimate of how the election might pan out in 2020. 
 
 ![](../figures/2016_hashtags.png)
 Figure 2.
 
-According to Figure 2 (sourced from a [Medium article](https://medium.com/tow-center/a-final-data-driven-look-at-trump-v-clinton-on-social-media-7ea9bb747982)), it can be seen that Trump **#MAGA** became very popular as the election neared. 
+According to Figure 2 (sourced from a [Medium article](https://medium.com/tow-center/a-final-data-driven-look-at-trump-v-clinton-on-social-media-7ea9bb747982)), it can be seen that Trump's **#MAGA** became very popular as the election neared. 
 
 + This trending hashtag might have helped Trump, because it not only **boosted his popularity** but it also served as a constant reminder of what Trump's campaign is about. 
 + Another interesting point about this figure is that Trump's use of social media is in itself a form of advertisement. Instead of having to present his slogan through posters, tv ads, and other means, Trump can reach more people through social media. Thus, social media as an advertising platform can possibly reach more people especially if the posts are created from the candidate's account.
@@ -32,8 +32,8 @@ According to Figure 2 (sourced from a [Medium article](https://medium.com/tow-ce
 ## How social media may influence the 2020 election?
 
 To understand how social media may influence the 2020 election, we can look at the 2016 election. 
-+ Trump and Clinton spent a combined [**$81 million**](https://www.vox.com/2017/11/1/16593066/trump-clinton-facebook-advertising-money-election-president-russia) on Facebook advertisements. 
-+ Furthermore, between June and November 2016, Trump spent over **$44 million dollars** on Facebook ads compared to Clinton's **$28 million dollars**. 
++ Trump and Clinton spent a combined [81 million dollars](https://www.vox.com/2017/11/1/16593066/trump-clinton-facebook-advertising-money-election-president-russia) on Facebook advertisements. 
++ Furthermore, between June and November 2016, Trump spent over [$44 million dollars](https://www.vox.com/2017/11/1/16593066/trump-clinton-facebook-advertising-money-election-president-russia) on Facebook ads compared to Clinton's [$28 million dollars](https://www.vox.com/2017/11/1/16593066/trump-clinton-facebook-advertising-money-election-president-russia). 
 + Given that Trump has spent more on social media advertisments than Clinton and has won the 2016 election, spending on social media ads can be a potential indicator of election odds. However, it is also important to take into context the 2016 election. **Cambridge Analytica** played a signficant impact on Trump's campaign, and it could have skewed the number of ads in favor of Trump. 
 
 Even though Trump paid for more social media ads in 2016, Biden is currently outpaying him. Trump seems to be more vocal on social media, however, which can play to his advantage. Trump constantly tweets everything that is going on, and this may help him connect with his supporters more. However, the strength of using ad spending on social media as a predictor of the 2020 election seems to have its pitfalls: 
