@@ -10,7 +10,7 @@ Figure 1.
 
 Sourced from the [Wesleyan Media Project](https://mediaproject.wesleyan.edu/releases-100120/#data), Figure 1 indicates the comparison in spending between President Trump and Presidential Candidate Joe Biden on Facebook advertisements. While there are other social media that both candidates use to promote their campaigns, such as Twitter and Instagram, Facebook is generally the most popular social media for advertisements. There are three key pieces of information we can gather from this figure:
 
-+ Biden has spent **$1,705,188** more than Donald Trump on Facebook Ads in 2020. 
++ Biden has spent **$1,705,188** more than Donald Trump on Facebook ads in 2020. 
 + While Biden has spent more on Facebook ads than Donald Trump, the **preisdent is a more active user on social media**.
 + The fact that both candidates have spent close to **$50 million on Facebook ads** indicates that both candidates value social media advertisements fairly high.
 
