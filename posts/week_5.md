@@ -32,8 +32,8 @@ According to Figure 2 (sourced from a [Medium article](https://medium.com/tow-ce
 ## How social media may influence the 2020 election?
 
 To understand how social media may influence the 2020 election, we can look at the 2016 election. 
-+ Trump and Clinton spent a combined [81 million dollars](https://www.vox.com/2017/11/1/16593066/trump-clinton-facebook-advertising-money-election-president-russia) on Facebook advertisements. 
-+ Furthermore, between June and November 2016, Trump spent over [$44 million dollars](https://www.vox.com/2017/11/1/16593066/trump-clinton-facebook-advertising-money-election-president-russia) on Facebook ads compared to Clinton's [$28 million dollars](https://www.vox.com/2017/11/1/16593066/trump-clinton-facebook-advertising-money-election-president-russia). 
++ Trump and Clinton spent a combined [81 million dollars](https://thenextweb.com/facebook/2018/04/04/facebook-confirms-trumps-ads-bested-clintons-during-presidential-bid/) on Facebook advertisements. 
++ Furthermore, between June and November 2016, Trump spent over [44 million dollars](https://thenextweb.com/facebook/2018/04/04/facebook-confirms-trumps-ads-bested-clintons-during-presidential-bid/) on Facebook ads compared to Clinton's [28 million dollars](https://www.vox.com/2017/11/1/16593066/trump-clinton-facebook-advertising-money-election-president-russia). 
 + Given that Trump has spent more on social media advertisments than Clinton and has won the 2016 election, spending on social media ads can be a potential indicator of election odds. However, it is also important to take into context the 2016 election. **Cambridge Analytica** played a signficant impact on Trump's campaign, and it could have skewed the number of ads in favor of Trump. 
 
 Even though Trump paid for more social media ads in 2016, Biden is currently outpaying him. Trump seems to be more vocal on social media, however, which can play to his advantage. Trump constantly tweets everything that is going on, and this may help him connect with his supporters more. However, the strength of using ad spending on social media as a predictor of the 2020 election seems to have its pitfalls: 
