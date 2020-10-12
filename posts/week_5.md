@@ -39,7 +39,7 @@ To understand how social media may influence the 2020 election, we can look at t
 Even though Trump paid for more social media ads in 2016, Biden is currently outpaying him. Trump seems to be more vocal on social media, however, which can play to his advantage. Trump constantly tweets everything that is going on, and this may help him connect with his supporters more. However, the strength of using ad spending on social media as a predictor of the 2020 election seems to have its pitfalls: 
 + There is **limited data** on social media spending on previous presidential elections to get a grasp of how strong the predictor is. 
 + **Spending money on social media ads is different from being vocal on a social media platform**. Some candidates may find an advantage in being active on social media compared to spending money on social media ads.
-+ **Using money spent on social media ads may only tell a piece of the overall picture**: Given that there online communities and conspiracy groups hold a strong foothold on Facebook, it may be difficult to account for which social media ads actually play an effect on voters in America.  
++ **Using money spent on social media ads may only tell a piece of the overall picture**: Given that online communities and conspiracy groups hold a strong foothold on Facebook, it may be difficult to account for which social media ads actually play an effect on voters in America.  
 
 
 
