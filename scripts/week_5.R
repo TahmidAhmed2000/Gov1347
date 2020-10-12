@@ -20,19 +20,6 @@ social_df %>%
 ggsave("figures/FB.png")
 
 
-# Social Media Topics
-topic_df <- read_csv("data/topic_sm.csv")
-
-topictrump_df <- topic_df %>%
-  filter(Candidate == "Donald J. Trump") %>%
-  pivot_longer(cols = c(Governance, Safety, Education,
-                       Health, Covid)) %>%
-  select(!`Social Program`)
-
-topictrump_df %>%
-  ggplot(aes(name, value, fill = name)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  coord_flip(xlim = NULL, ylim = NULL, expand = TRUE, clip = "on") 
   
 
 
