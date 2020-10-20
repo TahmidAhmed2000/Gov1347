@@ -88,12 +88,12 @@ demo_2020_change <- as.data.frame(demo_2020_change)
 rownames(demo_2020_change) <- demo_2020_change$state
 demo_2020_change <- demo_2020_change[state.abb, ]
 
-# Model using no demographic change
+# Model using historical demographic change
 demo_2020_pred <- data.frame(pred = predict(mod_demog_change, newdata = demo_2020_change),
                              state = state.abb) %>%
                              mutate(winner = ifelse(pred > 50, "Democrat", "Republican"))
 
-# Plot for no demographic change
+# Plot for historical demographic change
 plot_dem <- ggplot(demo_2020_pred, aes(state = state, fill = winner)) + 
   geom_statebins() + 
   theme_statebins() +
