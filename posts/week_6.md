@@ -2,13 +2,13 @@
 
 ## Overview
 
-Different political parties typically have different voter demographics. For example, minorities are more likely to vote democrat while white people are more likely to vote republican. Moreover, demographics can also be mobilized during election cycles. For example, in light of the BLM movement, it is possible that black voters are more likely to [mobilize](https://fivethirtyeight.com/features/the-partisan-gender-and-generational-differences-among-black-voters-heading-into-election-day/) and vote for a democratic candidate. In this project, we will look at how surges in certain demographic blocs will affect democratic vote share. From a recent study from [Pew](https://www.pewresearch.org/methods/2020/09/08/democrats-made-gains-from-multiple-sources-in-2018-midterm-victories/), it seems that changes in demographic blocs for african americans, females, and young voters tend to have a signficant impact on democratic popular vote share. Thus, we will pay close attention to the changes in these particular demographic blocs. 
+Different political parties typically have different voter demographics. For example, minorities are more likely to vote democrat while white people are more likely to vote republican. Moreover, demographics can also be mobilized during election cycles. For example, in light of the BLM movement, it is possible that black voters are more likely to [mobilize](https://fivethirtyeight.com/features/the-partisan-gender-and-generational-differences-among-black-voters-heading-into-election-day/) and vote for a democratic candidate. In this project, we will look at how surges in certain demographic blocs will affect democratic vote share. From a recent study from [Pew](https://www.pewresearch.org/methods/2020/09/08/democrats-made-gains-from-multiple-sources-in-2018-midterm-victories/), it seems that changes in demographic blocs of african americans, females, and young voters tend to have a signficant impact on democratic popular vote share. Thus, we will pay close attention to the changes in these particular demographic blocs. 
 
 ## Historical demographic effects
 
 ![](../figures/demographic_table.png)
 
-According to Table 1, we can see historically how changes in demographic blocs affect popular vote share for democrats under a linear model. It appears that the black and female vote play a significant impact on democratic vote share. For example, an increase in one percent of african americans voting increases democratic popular vote share by around **5.7%**. Likewise, an increase in one percent of females voting increases democratic popular vote share by around **7%**. Evidently, both changes in demographic blocs for black people and females have a p-value less than 0.01 and are significant. 
+According to Table 1, we can see historically how changes in demographic blocs affect popular vote share for democrats under a linear model. It appears that the black and female vote play a significant impact on democratic vote share. For example, an increase in one percent of african americans voting increases democratic popular vote share by around **5.7%**. Likewise, an increase in one percent of females voting increases democratic popular vote share by around **7%**. Evidently, both changes in demographic blocs of black people and females have a p-value less than 0.01 and are significant. 
 
 ## Prediction model with hypothetical changes in key demographic blocs
 
@@ -16,7 +16,7 @@ Let's now turn to how hypothethical changes in key demographic blocs affect elec
 
 ![](../figures/black.png)
 
-+ Given the signficance of the black vote, let's look into how a **10% surge** among black voters may impact the democratic popular vote share. Considering the impact of the BLM movement and the rise of Trump's racist rhetoric, there is a possibility that more eligible black voters will turnout to vote to see a shift in power.
++ Given the signficance of the black vote, let's look into how a **10% surge** among black voters may impact the democratic popular vote share. Considering the impact of the BLM movement and the rise of Trump's racist rhetoric, there is a possibility that more eligible black voters will turn out to vote to see a shift in power.
 + If we were to see a 10% surge in the black voting population, we would see drastic effects on democratic popular vote share. A lot of southern states would be predicted to become blue, which is something to take note of. 
 
 ![](../figures/female.png)
