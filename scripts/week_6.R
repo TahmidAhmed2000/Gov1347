@@ -120,7 +120,7 @@ plot_black <- ggplot(black_2020_pred, aes(state = state, fill = winner)) +
   guides(fill=FALSE)
 
 plot_grid(plot_dem, plot_black)
-ggsave("figures/black.png", height = 7, width = 13)
+ggsave("figures/black.png", height = 6, width = 12)
 
 # If 10% of Females voted more
 female_2020_pred <- data.frame(pred = predict(mod_demog_change, newdata = demo_2020_change) +
@@ -139,7 +139,7 @@ plot_female <- ggplot(female_2020_pred, aes(state = state, fill = winner)) +
   guides(fill=FALSE)
 
 plot_grid(plot_dem, plot_female)
-ggsave("figures/female.png", height = 7, width = 13)
+ggsave("figures/female.png", height = 6, width = 12)
 
 # If 10% of young voters voted more
 young_2020_pred <- data.frame(pred = predict(mod_demog_change, newdata = demo_2020_change) +
@@ -158,4 +158,5 @@ plot_young <- ggplot(young_2020_pred, aes(state = state, fill = winner)) +
   guides(fill=FALSE)
 
 plot_grid(plot_dem, plot_young)
-ggsave("figures/young.png", height = 7, width = 13)
+ggsave("figures/young.png", height = 6, width = 12)
+
