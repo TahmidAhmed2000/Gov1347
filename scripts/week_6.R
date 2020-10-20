@@ -3,6 +3,8 @@ library(tidyverse)
 library(caret)
 library(statebins)
 library(usmap)
+library(stargazer)
+library(cowplot)
 
 # Read in data
 demo <- read_csv("data/demographic_1990-2018.csv")
@@ -48,6 +50,17 @@ mod_demog_change <- lm(D_pv2p ~ Black_change + Hispanic_change + Asian_change +
                        as.factor(region), data = demo_change)
 summary((mod_demog_change))
 
+stargazer(mod_demog_change,
+          title = "Historical Demographic Effects on Elections",
+          header = FALSE,
+          covariate.labels = c("Net Black_change", "Hispanic_change", "Asian_change", "Female_change", "age20_change", "age3045_change", "age4565_change"),
+          dep.var.labels = "Democratic Vote Share",
+          omit.stat = c("f", "rsq"),
+          notes.align = "l",
+          font.size = "tiny",
+          column.sep.width = "1pt")
+
+
 # 2020 Data for prediction
 demo_2020 <- subset(demo, year == 2018)
 demo_2020 <- as.data.frame(demo_2020)
@@ -81,7 +94,7 @@ demo_2020_pred <- data.frame(pred = predict(mod_demog_change, newdata = demo_202
                              mutate(winner = ifelse(pred > 50, "Democrat", "Republican"))
 
 # Plot for no demographic change
-ggplot(demo_2020_pred, aes(state = state, fill = winner)) + 
+plot_dem <- ggplot(demo_2020_pred, aes(state = state, fill = winner)) + 
   geom_statebins() + 
   theme_statebins() +
   scale_fill_manual(values=c("#619CFF", "#F8766D")) +
@@ -97,7 +110,7 @@ black_2020_pred <- data.frame(pred = predict(mod_demog_change, newdata = demo_20
   mutate(winner = ifelse(pred > 50, "Democrat", "Republican"))
 
 # Plot if 10% of African Americans voted more
-ggplot(black_2020_pred, aes(state = state, fill = winner)) + 
+plot_black <- ggplot(black_2020_pred, aes(state = state, fill = winner)) + 
   geom_statebins() + 
   theme_statebins() +
   scale_fill_manual(values=c("#619CFF", "#F8766D")) +
@@ -106,6 +119,9 @@ ggplot(black_2020_pred, aes(state = state, fill = winner)) +
        fill = "") + 
   guides(fill=FALSE)
 
+plot_grid(plot_dem, plot_black)
+ggsave("figures/black.png", height = 5, width = 12)
+
 # If 10% of Females voted more
 female_2020_pred <- data.frame(pred = predict(mod_demog_change, newdata = demo_2020_change) +
                                 (7.0143 * .01)*demo_2020$Female,
@@ -113,7 +129,7 @@ female_2020_pred <- data.frame(pred = predict(mod_demog_change, newdata = demo_2
   mutate(winner = ifelse(pred > 50, "Democrat", "Republican"))
 
 # Plot if 10% of Females voted more
-ggplot(female_2020_pred, aes(state = state, fill = winner)) + 
+plot_female <- ggplot(female_2020_pred, aes(state = state, fill = winner)) + 
   geom_statebins() + 
   theme_statebins() +
   scale_fill_manual(values=c("#619CFF", "#F8766D")) +
@@ -122,6 +138,9 @@ ggplot(female_2020_pred, aes(state = state, fill = winner)) +
        fill = "") + 
   guides(fill=FALSE)
 
+plot_grid(plot_dem, plot_female)
+ggsave("figures/female.png", height = 5, width = 12)
+
 # If 10% of young voters voted more
 young_2020_pred <- data.frame(pred = predict(mod_demog_change, newdata = demo_2020_change) +
                                  (1.8674 * .10)*demo_2020$age20,
@@ -129,7 +148,7 @@ young_2020_pred <- data.frame(pred = predict(mod_demog_change, newdata = demo_20
   mutate(winner = ifelse(pred > 50, "Democrat", "Republican"))
 
 # Plot if 10% of Females voted more
-ggplot(young_2020_pred, aes(state = state, fill = winner)) + 
+plot_young <- ggplot(young_2020_pred, aes(state = state, fill = winner)) + 
   geom_statebins() + 
   theme_statebins() +
   scale_fill_manual(values=c("#619CFF", "#F8766D")) +
@@ -138,3 +157,5 @@ ggplot(young_2020_pred, aes(state = state, fill = winner)) +
        fill = "") + 
   guides(fill=FALSE)
 
+plot_grid(plot_dem, plot_young)
+ggsave("figures/young.png", height = 5, width = 12)
