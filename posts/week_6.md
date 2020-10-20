@@ -2,7 +2,7 @@
 
 ## Overview
 
-Different political parties typically have different voter demographics. For example, minorities are more likely to vote democrat while white people are more likely to vote republican. Moreover, demographics can also be mobilized during election cycles. For example, in light of the BLM movement, it is possible that black voters are more likely to [mobilize](https://fivethirtyeight.com/features/the-partisan-gender-and-generational-differences-among-black-voters-heading-into-election-day/) and vote for a democratic candidate. In this project, we will look at how surges in certain demographic blocs will affect democratic vote share. From a recent study from [Pew](https://www.pewresearch.org/methods/2020/09/08/democrats-made-gains-from-multiple-sources-in-2018-midterm-victories/), it seems that changes in demographic blocs for african americans, hispanics, asians, females, and young voters tend to have a signficant impact on democratic popular vote share. Thus, we will pay close attention to the changes in these particular demographic blocs. 
+Different political parties typically have different voter demographics. For example, minorities are more likely to vote democrat while white people are more likely to vote republican. Moreover, demographics can also be mobilized during election cycles. For example, in light of the BLM movement, it is possible that black voters are more likely to [mobilize](https://fivethirtyeight.com/features/the-partisan-gender-and-generational-differences-among-black-voters-heading-into-election-day/) and vote for a democratic candidate. In this project, we will look at how surges in certain demographic blocs will affect democratic vote share. From a recent study from [Pew](https://www.pewresearch.org/methods/2020/09/08/democrats-made-gains-from-multiple-sources-in-2018-midterm-victories/), it seems that changes in demographic blocs for african americans, females, and young voters tend to have a signficant impact on democratic popular vote share. Thus, we will pay close attention to the changes in these particular demographic blocs. 
 
 ## Historical demographic effects
 
@@ -12,7 +12,7 @@ According to Table 1, we can see how changes in demographic blocs affect popular
 
 ## Prediction model with hypothetical changes in key demographics
 
-Let's now turn to how hypothethical changes in key demographics affect election outcomes. We will thus look at how surges among particular demographic blocs impact democratic vote share in each state. We will compare these surges to historical demographic effects. 
+Let's now turn to how hypothethical changes in key demographics affect election outcomes. We will thus look at how surges among particular demographic blocs impact democratic vote share in each state. We will compare predictions from these surges to predictions from historical demographic effects. 
 
 ![](../figures/black.png)
 
@@ -31,7 +31,7 @@ Let's now turn to how hypothethical changes in key demographics affect election 
 
 ## Conclusion
 
-It is interesting to note 
+It is interesting to note the significant impact these particular demographic blocs have on democratic vote share. We see many traditionaly red states that turn to blue. Additionally, there are some advantages with this demographic bloc model. Under this model, we are essentially fitting one regression across states as opposed to fitting a regression for each state. By using a pooled model as opposed to an unpooled model, we are able to capture correlation across states using the same constance and slopes from our regression. Furthermore, a pooled model relies less on data from each particular state, 
 
 
 
