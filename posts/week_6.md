@@ -6,7 +6,7 @@ Different political parties typically have different voter demographics. For exa
 
 ## Historical demographic effects
 
-![](../figures/demographic_table.png)
+![](../figures/dem_table.png)
 
 According to Table 1, we can see historically how changes in demographic blocs affect popular vote share for democrats under a linear model. It appears that the black and female vote play a significant impact on democratic vote share. For example, an increase in one percent of african americans voting increases democratic popular vote share by around **5.7%**. Likewise, an increase in one percent of females voting increases democratic popular vote share by around **7%**. Evidently, both changes in demographic blocs of black people and females have a p-value less than 0.01 and are significant. 
 
@@ -32,7 +32,6 @@ Let's now turn to how hypothetical changes in key demographic blocs affect elect
 ## Conclusion
 
 It is interesting to note the significant impact changes in these particular demographic blocs have on democratic vote share. We see many traditionally red states that turn to blue. Additionally, there are some advantages with this demographic bloc model. Under this model, we are essentially fitting one regression across states as opposed to fitting a regression for each state. By using a pooled model as opposed to an unpooled model, we are able to capture correlation across states using the same constants and slopes from our regression. Furthermore, a pooled model relies less on data from each particular state, which helps to drive strength from states that are less data-sparse. 
-
 
 
  

@@ -51,7 +51,7 @@ mod_demog_change <- lm(D_pv2p ~ Black_change + Hispanic_change + Asian_change +
 summary((mod_demog_change))
 
 stargazer(mod_demog_change,
-          title = "Historical Demographic Effects on Elections",
+          title = "Historical Demographic Change Effects on Elections",
           header = FALSE,
           covariate.labels = c("Net Black_change", "Hispanic_change", "Asian_change", "Female_change", "age20_change", "age3045_change", "age4565_change"),
           dep.var.labels = "Democratic Vote Share",
