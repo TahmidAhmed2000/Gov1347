@@ -147,7 +147,7 @@ young_2020_pred <- data.frame(pred = predict(mod_demog_change, newdata = demo_20
                                state = state.abb) %>%
   mutate(winner = ifelse(pred > 50, "Democrat", "Republican"))
 
-# Plot if 10% of Females voted more
+# Plot if 10% of young voters voted more
 plot_young <- ggplot(young_2020_pred, aes(state = state, fill = winner)) + 
   geom_statebins() + 
   theme_statebins() +
