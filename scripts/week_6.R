@@ -158,4 +158,4 @@ plot_young <- ggplot(young_2020_pred, aes(state = state, fill = winner)) +
   guides(fill=FALSE)
 
 plot_grid(plot_dem, plot_young)
-ggsave("figures/young.png", height = 5, width = 12)
+ggsave("figures/young.png", height = 7, width = 14)
