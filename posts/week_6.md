@@ -4,7 +4,7 @@
 
 Different political parties typically have different voter demographics. For example, minorities are more likely to vote democrat while white people are more likely to vote republican. Moreover, demographics can also be mobilized during election cycles. For example, in light of the BLM movement, it is possible that black voters are more likely to [mobilize](https://fivethirtyeight.com/features/the-partisan-gender-and-generational-differences-among-black-voters-heading-into-election-day/) and vote for a democratic candidate. In this project, we will look at how surges in certain demographic blocs will affect democratic vote share. From a recent study from [Pew](https://www.pewresearch.org/methods/2020/09/08/democrats-made-gains-from-multiple-sources-in-2018-midterm-victories/), it seems that changes in demographic blocs of african americans, females, and young voters tend to have a signficant impact on democratic popular vote share. Thus, we will pay close attention to the changes in these particular demographic blocs. 
 
-## Historical demographic effects
+## Historical demographic change effects
 
 ![](../figures/dem_table.png)
 
