@@ -12,7 +12,7 @@ According to Table 1, we can see historically how changes in demographic blocs a
 
 ## Prediction model with hypothetical changes in key demographic blocs
 
-Let's now turn to how hypothethical changes in key demographic blocs affect election outcomes. We will thus look at how surges among particular demographic blocs impact democratic vote share in each state. We will compare predictions from these surges to predictions from historical demographic effects. 
+Let's now turn to how hypothetical changes in key demographic blocs affect election outcomes. We will thus look at how surges among particular demographic blocs impact democratic vote share in each state. We will compare predictions from these surges to predictions from historical demographic effects. 
 
 ![](../figures/black.png)
 
