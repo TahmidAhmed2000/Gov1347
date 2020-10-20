@@ -27,7 +27,7 @@ Let's now turn to how hypothetical changes in key demographic blocs affect elect
 ![](../figures/young.png)
 
 + The last plot we will look at is how a **10% surge** in young voters will affect democratic vote share in 2020. Given the rise of the progressive movement, it is also likely that there may be an increase in voter turnout among young voters. 
-+ A surge in young voters predicts that democrats are more likely to win states in the Great Plains region. This is quite interesting as there are fewer southern states that turned blue when we see a surge among young voters. 
++ A surge in young voters predicts that democrats are more likely to win states in the midwest and Great Plains regions. This is quite interesting as there are fewer southern states that turned blue when we see a surge among young voters. 
 
 ## Conclusion
 
