@@ -99,7 +99,7 @@ plot_dem <- ggplot(demo_2020_pred, aes(state = state, fill = winner)) +
   theme_statebins() +
   scale_fill_manual(values=c("#619CFF", "#F8766D")) +
   labs(title = "2020 Presidential Election Prediction Map",
-       subtitle = "historical demographic effects",
+       subtitle = "historical demographic change effects",
        fill = "") + 
   guides(fill=FALSE)
 
