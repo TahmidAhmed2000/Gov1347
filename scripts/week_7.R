@@ -64,18 +64,28 @@ tab_model(covid_model,
 # Graph to show Covid positivity rates by state
 ggplot(covid_poll, aes(state = state, fill = pos_pct)) + 
   geom_statebins() + 
+  scale_fill_gradient2(
+    high = "blue",
+    mid = "white",
+    low = "red",
+    name = "Positivity Rate ") +
   theme_statebins() +
   labs(title = "Covid Positivity Rate by State",
        caption = "The Covid Tracking Project") 
 
-ggsave("figures/state_covid.png", height = 8, width = 12)
+ggsave("figures/state_covid.png")
 
 # Graph to show Covid death rates by state
 ggplot(covid_poll, aes(state = state, fill = death_pct)) + 
   geom_statebins() + 
+  scale_fill_gradient2(
+    high = "blue",
+    mid = "white",
+    low = "red",
+    name = "Death Rate") +
   theme_statebins() +
   labs(title = "Covid Death Rate by State",
        caption = "The Covid Tracking Project") 
 
-ggsave("figures/death_covid.png", height = 8, width = 12)
+ggsave("figures/death_covid.png")
 
