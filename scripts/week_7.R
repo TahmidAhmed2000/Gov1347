@@ -57,10 +57,9 @@ covid_model <- lm(Trump_pct ~ deathIncrease + positiveIncrease + totalTestResult
 summary((covid_model))
 
 tab_model(covid_model,
-          title = "The Impact of COVID Cases on Trump's Voteshare by State",
-          dv.labels = "Trump's Projected State Voteshare")
+          title = "Effect of Covid Pandemic on Incumbent's Voteshare by State",
+          dv.labels = "Incumbent's State Voteshare")
 
-png("figures/covid_model", height=1000, width=200)
 
 
 # Graph to show Covid positivity rates by state
