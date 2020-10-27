@@ -13,7 +13,7 @@ Figure 1.
 Figure 2.
 
 Before we delve into how the pandemic might affect Trump's vote share, we should pay attention to how the pandemic is affecting states in general.
-+ According to Figure 1, we can see that Covid positivity rate by state varies although it is quite high for states like **Idaho and South Dakota**. 
++ According to Figure 1, we can see that Covid positivity rate varies by state although it is quite high for states like **Idaho and South Dakota**. 
 + While the positivity rate is generally less than **0.15**, some states are worse off than others. It seems that the midwest and south have higher positivity rates than the northeast for example. 
 + According to Figure 2, the death rate is generally below **0.005**. 
 + **States with high positivty rates also seem to have high death rates as well.**
@@ -30,7 +30,7 @@ Now that we have a better understanding of what the pandemic is like in America,
 
 ## Conclusion
 
-Based on Figure 3, it seems like the Coronavirus pandemic, a potential nonpolitical shock, did not seem to have much of an impact on Trump's vote share. This is very interesting because the Coronavirus pandemic has been the hot topic in America and its media. It's tough to say how much of an impact the pandemic might affect Trump's predicted vote share because the the pandemic did have indirect effects on things like the economy, which is a fundamental that is generally a predictor for the election. In addition, some states are potentially ardent supporters for Trump even though they may have a high number of coronavirus cases, which may explain the weak correlations seen in Figure 3. Given that election periods have never really had something like the Coronavirus pandemic, I am intrigued by how everything will play out at the end. 
+Based on Figure 3, it seems like the Coronavirus pandemic, a potential nonpolitical shock, did not seem to have much of an impact on Trump's vote share. This is very interesting because the Coronavirus pandemic has been the hot topic in America and its media. However, it's tough to say how much of an impact the pandemic might affect Trump's predicted vote share because the the pandemic did have indirect effects on things like the economy, which is a fundamental that is generally a predictor for the election. In addition, some states are potentially ardent supporters for Trump even though they may have a high number of coronavirus cases, which may explain the weak correlations seen in Figure 3. Given that election periods have never really had something like the Coronavirus pandemic, I am intrigued by how everything will play out at the end. 
 
 
 
