@@ -10,7 +10,7 @@ library(sjPlot)
 # Read in data
 covid <- read_csv("data/covid_state.csv") %>%
   filter(grepl('2020-10-25', date)) %>%
-  mutate(pos_pct = positive/totalTestResults)
+  mutate(pos_pct = positive/totalTestResults, death_pct = death/totalTestResults)
 
 poll <- read_csv("data/statepoll_2020.csv") 
 
@@ -70,4 +70,13 @@ ggplot(covid_poll, aes(state = state, fill = pos_pct)) +
        caption = "The Covid Tracking Project") 
 
 ggsave("figures/state_covid.png", height = 8, width = 12)
+
+# Graph to show Covid death rates by state
+ggplot(covid_poll, aes(state = state, fill = death_pct)) + 
+  geom_statebins() + 
+  theme_statebins() +
+  labs(title = "Covid Death Rate by State",
+       caption = "The Covid Tracking Project") 
+
+ggsave("figures/death_covid.png", height = 8, width = 12)
 
