@@ -49,7 +49,7 @@ Facet_corona %>%
   theme_classic()+
   theme(legend.position = "none")
 
-ggsave("Incumbent_covid.png", height = 10, width = 12)
+ggsave("figures/Incumbent_covid.png", height = 10, width = 12)
 
 # Linear Covid Model to analyze Covid effects
 covid_model <- lm(Trump_pct ~ deathIncrease + positiveIncrease + totalTestResultsIncrease + negativeIncrease +
@@ -60,6 +60,9 @@ tab_model(covid_model,
           title = "The Impact of COVID Cases on Trump's Voteshare by State",
           dv.labels = "Trump's Projected State Voteshare")
 
+png("figures/covid_model", height=1000, width=200)
+
+
 # Graph to show Covid positivity rates by state
 ggplot(covid_poll, aes(state = state, fill = pos_pct)) + 
   geom_statebins() + 
@@ -67,5 +70,5 @@ ggplot(covid_poll, aes(state = state, fill = pos_pct)) +
   labs(title = "Covid Positivity Rate by State",
        caption = "The Covid Tracking Project") 
 
-ggsave("state_covid.png", height = 8, width = 12)
+ggsave("figures/state_covid.png", height = 8, width = 12)
 
