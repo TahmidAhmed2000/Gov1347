@@ -66,10 +66,10 @@ hist_poll_r <- poll_state_r %>%
   filter(state %in% rep_states)
 
 
-poll_glm_r <- glm(R_pv2p ~ avg_pollyr, data = hist_poll_r)
-summary(poll_glm_r)
+poll_lm_r <- lm(R_pv2p ~ avg_pollyr, data = hist_poll_r)
+summary(poll_lm_r)
 
-rep_poll <- data.frame(pred = predict(poll_glm_r, newdata = new_poll_r), rep_states) %>%
+rep_poll <- data.frame(pred = predict(poll_lm_r, newdata = new_poll_r, interval="prediction"), rep_states) %>%
   rename(state = rep_states)
 
 ###########################################################
@@ -106,10 +106,12 @@ hist_poll_d <- poll_state_d %>%
   filter(state %in% dem_states)
 
 
-poll_glm_d <- glm(R_pv2p ~ avg_pollyr, data = hist_poll_d)
-summary(poll_glm_d)
+poll_lm_d <- lm(R_pv2p ~ avg_pollyr, data = hist_poll_d)
+summary(poll_lm_d)
 
-dem_poll <- data.frame(pred = predict(poll_glm_d, newdata = new_poll_d, interval = "prediction"), dem_states) %>%
+poll_lm_dd <- lm(D_pv2p ~ avg_pollyr, data = hist_poll_d)
+
+dem_poll <- data.frame(pred = predict(poll_lm_d, newdata = new_poll_d, interval = "prediction"), dem_states) %>%
   rename(state = dem_states)
 
 ############################################################
@@ -146,15 +148,15 @@ hist_poll_bg <- poll_state_bg %>%
   filter(state %in% bg_states)
 
 
-poll_glm_bg <- glm(R_pv2p ~ avg_pollyr, data = hist_poll_bg)
-summary(poll_glm_bg)
+poll_lm_bg <- lm(R_pv2p ~ avg_pollyr, data = hist_poll_bg)
+summary(poll_lm_bg)
 
-bg_poll <- data.frame(pred = predict(poll_glm_bg, newdata = new_poll_bg), bg_states) %>%
+bg_poll <- data.frame(pred = predict(poll_lm_bg, newdata = new_poll_bg, interval = "prediction"), bg_states) %>%
   rename(state = bg_states)
  
 ####################
 pred_poll <- rbind(rep_poll, dem_poll, bg_poll) %>%
-  mutate(winner = ifelse(pred > 50, "Republican", "Democrat"))
+  mutate(winner = ifelse(pred.fit > 50, "Republican", "Democrat"))
 
 plot_usmap(data = pred_poll, regions = "states", values = "winner") +
   scale_fill_manual(breaks = c("Democrat", "Republican"),
@@ -265,11 +267,10 @@ new_data_r <- new_data %>%
 
 
 
-fund_glm_r <- glm(R_pv2p ~ GDP_growth_qt + turnoutpct_change + net_app, data = hist_full_data_r)
-summary(fund_glm_r) 
+fund_lm_r <- lm(R_pv2p ~ GDP_growth_qt + turnoutpct_change + net_app, data = hist_full_data_r)
+summary(fund_lm_r) 
 
-fund_pred_r <- data.frame(pred = predict(fund_glm_r, newdata = new_data_r), rep_states) %>%
-  mutate(winner = ifelse(pred > 50, "Republican", "Democrat")) %>%
+fund_pred_r <- data.frame(pred = predict(fund_lm_r, newdata = new_data_r, interval = "prediction"), rep_states) %>%
   rename(state = rep_states)
 
 hist_full_data_d <- poll_state_bg %>%
@@ -291,11 +292,10 @@ new_data_d <- new_data %>%
   left_join(app_2020, by ="state") %>%
   mutate(net_app = approve - disapprove)
 
-fund_glm_d <- glm(R_pv2p ~ GDP_growth_qt + turnoutpct_change, data = hist_full_data_d)
-summary(fund_glm_d)
+fund_lm_d <- lm(R_pv2p ~ GDP_growth_qt + turnoutpct_change, data = hist_full_data_d)
+summary(fund_lm_d)
 
-fund_pred_d <- data.frame(pred = predict(fund_glm_d, newdata = new_data_d), dem_states) %>%
-  mutate(winner = ifelse(pred > 50, "Republican", "Democrat")) %>%
+fund_pred_d <- data.frame(pred = predict(fund_lm_d, newdata = new_data_d, interval = "prediction"), dem_states) %>%
   rename(state = dem_states)
 
 hist_full_data_bg <- poll_state_bg %>%
@@ -317,14 +317,14 @@ new_data_bg <- new_data %>%
   left_join(app_2020, by ="state") %>%
   mutate(net_app = approve - disapprove)
 
-fund_glm_bg <- glm(R_pv2p ~ GDP_growth_qt + turnoutpct_change, data = hist_full_data_bg)
-summary(fund_glm_bg)
+fund_lm_bg <- lm(R_pv2p ~ GDP_growth_qt + turnoutpct_change, data = hist_full_data_bg)
+summary(fund_lm_bg)
 
-fund_pred_bg <- data.frame(pred = predict(fund_glm_bg, newdata = new_data_bg), bg_states) %>%
-  mutate(winner = ifelse(pred > 50, "Republican", "Democrat")) %>%
+fund_pred_bg <- data.frame(pred = predict(fund_lm_bg, newdata = new_data_bg, interval = "prediction"), bg_states) %>%
   rename(state = bg_states)
 
-pred_fund <- rbind(fund_pred_r, fund_pred_d, fund_pred_bg)
+pred_fund <- rbind(fund_pred_r, fund_pred_d, fund_pred_bg) %>%
+  mutate(winner = ifelse(pred.fit > 50, "Republican", "Democrat"))
 
 plot_usmap(data = pred_fund, regions = "states", values = "winner") +
   scale_fill_manual(breaks = c("Democrat", "Republican"),
@@ -338,8 +338,11 @@ plot_usmap(data = pred_fund, regions = "states", values = "winner") +
 
 pred_ensemble <- pred_poll %>%
   left_join(pred_fund, by = "state") %>%
-  mutate(pred = 0.99*pred.x + 0.01*pred.y) %>%
-  mutate(winner = ifelse(pred > 50, "Republican", "Democrat"))
+  mutate(pred = .96*pred.fit.x + 0.04*pred.fit.y) %>%
+  mutate(pred.lwr = .96*pred.lwr.x + 0.04*pred.lwr.y) %>%
+  mutate(pred.upr = .96*pred.upr.x + 0.04*pred.upr.y) %>%
+  mutate(winner = ifelse(pred > 50, "Republican", "Democrat")) %>%
+  select(pred, pred.lwr, pred.upr, winner, state)
   
 plot_usmap(data = pred_ensemble, regions = "states", values = "winner") +
   scale_fill_manual(breaks = c("Democrat", "Republican"),
@@ -348,28 +351,27 @@ plot_usmap(data = pred_ensemble, regions = "states", values = "winner") +
   labs(fill = "Projected Winner",
        title = "Forecasted Winners in Each State")
 
+######################################### Predictability ###########################
+# Visualize confidence intervals of final prediction
+ggplot(pred_ensemble, aes(x = pred, y = state, color = winner)) + 
+  geom_point() + 
+  scale_color_manual(values = c("blue", "red"), name = "", 
+                     labels = c("Democratic", "Republican")) + 
+  geom_errorbar(aes(xmin = pred.lwr, xmax = pred.upr)) +
+  # scale_color_gradient(low = "blue", high = "red") + 
+  theme_minimal_grid() + 
+  theme(axis.text.y = element_text(size = 7),
+        legend.position = "none") + 
+  ylab("") + 
+  xlab("Predicted Republican Vote Share %") + 
+  geom_vline(xintercept = 50, lty = 2) +
+  labs(title = "2020 Election 95% Prediction Intervals",
+       subtitle = "Weighted Ensemble Model: 
+       Polls, Q2 GDP Growth, Approval Rating and Turnout Percent Change", 
+       caption = "Weighting: 0.96 * Polls + 0.04 * Fundamentals")
 
 
-
-#########################3
-predict(fund_glm_r, new_data_r, se.fit = TRUE, interval = "prediction", level = 0.90)
-predict(poll_glm_r, new_poll_r, se.fit = TRUE, interval = "prediction", level = 0.90)
+########################### D.C. ###############################################
 
 
-predict(fund_glm_r, new_data_r, interval = "prediction", level = 0.95, se.fit = TRUE) 
-predict(poll_glm_r, new_poll_r, interval = "prediction", level = 0.95, se.fit = TRUE)
-  
-predict(fund_glm_r, new_data_r, interval = "prediction", level = 0.95, type = "link", se.fit = TRUE)
-
-
-
-pred_ensemble$lwr[pred_ensemble$state == s] <- CI_prediction_fit - (1.96 * CI_prediction_se)
-pred_ensemble$uppr[pred_ensemble$state == s] <- CI_prediction_fit + (1.96 * CI_prediction_se)
-
-
-pred_fund[2]
-
-as.matrix(as.data.frame(pred = predict(fund_glm_r, new_data_r, interval = "prediction", level = 0.95, se.fit = TRUE), rep_states))
-
-mat <- as.matrix(as.data.frame(predict(fund_glm_r, new_data_r, interval = "prediction", level = 0.95, se.fit = TRUE)))
 
