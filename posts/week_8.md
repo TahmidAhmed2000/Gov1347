@@ -11,7 +11,7 @@ The time has come! It is time to make our final prediction for the 2020 Presiden
 + To adjust for overfitting, I decided to separate America into three categories - red states, blue states, and battleground states - for my model. My grouping was based on how FiveThirtyEight grouped states. 
   + Red States - AK, IN, KS, MO, AL, AR, ID, KY, LA, MS, ND, OK, SD, MT, TN, WV, WY, SC, UT, NE
   + Blue States - CO, VA, CA, CT, DE, HI, IL, MD, MA, NJ, NY, OR, RI, VT, WA, ME, NM, NH
-  + Battleground states = FL, IA, OH, GA, NC, MI, MN, PA, WI, NV, AZ, TX
+  + Battleground states - FL, IA, OH, GA, NC, MI, MN, PA, WI, NV, AZ, TX
 + While it is better to model by county, there was little data to extract a model from a county basis. Thus, I decided to instead use my model for each of the three groups. 
 + In addition, we will be assuming the District of Columbia is a blue state and a projected democratic winner. 
 + The sources for my data are the following:
