@@ -14,7 +14,7 @@ The time has come! It is time to make our final prediction for the 2020 Presiden
 + While it is better to model by county, there was little data to extract a model from a county basis. Thus, I decided to instead use my model for each of the three groups. 
 + In addition, we will be assuming the District of Columbia is a blue state and a projected democratic winner. 
 + The sources for my data are the following:
-  + Historical polling and turnout data was based on data given from class
+  + Historical polling, approval, and turnout data was based on data given from class
   + Historical and present economic data was sourced from the Bureau of Economic Analysis
   + Present polling and approval data was based on FiveThirtyEight's forecast data
 
@@ -48,7 +48,8 @@ R_pv2p ~ GDP_growth_qt + turnoutpct_change + net_app
 + The next model I want to look at is a fundamental model, which is a linear model. 
 + Given the success of the Abromowitz’s Time for Change Model, I thought it was important to include the indicators of that model as part of my fundamental model. Thus, I used Q2 GDP growth and the president's approval rating as my predictors. I also did not add incumbent party as an interaction variable since I am already looking at incumbent's vote share and the Republican party. 
 + However, I did not just use those two predictors: I also used the change in turnout percentage as another predictor. I decided to add change in turnout percentage as another predictor, because I thought it was important that 150 million people are planning to vote (about 11 million more than 2016) and [turnout is already high](https://www.vox.com/2020/11/1/21543381/92-million-people-early-voting-turnout-2020). 
-+ Furthermore, I considered change in turnout percentage as a fundamental because I considered it as part of political data. Also, the fundamental model was used to predict Trump's vote share in each state for 2020 using Trump's recent approval ratings and each state's Q2 GDP growth rate. 
++ Furthermore, I considered change in turnout percentage as a fundamental because I considered it as part of political data. 
++ The fundamental model was used to predict Trump's vote share in each state for 2020 using Trump's recent 2020 approval ratings and each state's 2020 Q2 GDP growth rate. 
 + Given that we don't have information on change in turnout percentage, I decided to make change in turnout percentage 18% for each state as many news outlets are predicting around a huge [increase in voter turnout](https://www.npr.org/2020/10/26/927803214/62-million-and-counting-americans-are-breaking-early-voting-records), possibly around a fifth higher for some states. 
 
 ![](../figures/fundamental_final.png)
@@ -87,14 +88,15 @@ Figure 6.
 
 In this section, I will discuss the validation I used for my models. 
 
-+ First off, for the in-sample fit, the statistics are shown above for each type of state. We can see that the poll model typically has a higher R-Square than the fundamental model for all types of states. It is interesting to note, however, that while the R-square is quite high for the poll model for blue states, it's RMSE is pretty high. Thus, this shows that the models do have some sort of unpredictability. 
++ First off, for the in-sample fit, the statistics are shown above for each type of state. We can see that the poll model typically has a higher R-Square than the fundamental model for all types of states. It is interesting to note, however, that while the R-square is quite high for the poll model for blue states, it's RMSE is pretty high. 
++ We can see that red states have a high mean squared error using the poll model for the in-sample fit. 
+
 
 ![](../figures/outsample.png)
 Figure 7. 
 
 + For out-of-sample validation, I essentially performed cross-validation. I randomly divided the data into 2 subsets and used one subset for fitting the model and used the other for testing the model performance. I then repeated this procedure 1,000 times. 
 + For out-of-sample validation of the ensemble model, I calculated the predictive error by weighing the predictive errors from the poll and fundamental models with the same weights as the ensemble model. Given the characteristics of the model, I could not really do an out-of-sample validation like how I did for the poll and fundamental models, so I thought this method I outlined can potentially work.
-+ We can see that red states have a high mean squared error using the poll model for the in-sample fit. 
 + The predictive error using cross-validation seems to mainly be around 1.6 - 1.8 for all models.
 
 
