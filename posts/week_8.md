@@ -74,7 +74,7 @@ Figure 6.
 
 In this section, I will discuss the validation I used for my models. First off, the in-sample fit, the statistics are shown above for each type of state. We can see tht the poll model typically has the higher R-Square for each type of state than the fundamental model. It is interesting to note, however, that while the R-square is quite high for the poll model for blue states, it's RMSE is pretty high. Thus, this shows that the models do have some sort of unpredictability. 
 
-![](../figures/in_bg.png)
+![](../figures/outsample.png)
 Figure 7. 
 
 For out-of-sample validation, I randomly divided the data into 2 subsets and used one subset for fitting the model and used the other for testing the model performance. I then performed a cross-validation and then calculated the predictive error of cross-validation. For the ensemble model, I calculated the predictive error by weighting the predictive errors from the poll and fundamental models. 
@@ -103,7 +103,8 @@ In order to validate our model, I decided to do a sensitivity analysis on our mo
 
 + Using the sensitivity analysis for the ensemble model, it was hard to get a prediction of when Trump wins the election. If we use a weight greater than 0.96 for the poll model and a weight less than 0.04 for the fundamental model, we have the same predictions as the current ensmeble model of 0.96(Poll) + 0.04(Fundamental). 
 
-## Validation
+## Conclusion
+
 
 
 
