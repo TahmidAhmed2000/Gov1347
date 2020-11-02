@@ -115,7 +115,7 @@ Figure 8.
 I also decided to do a sensitivity analysis on our model. 
 ![](../figures/ensemble95_final.png)
 Figure 9. 
-+ Thus, I essentially changed the weights of the model. I decided to weigh the Poll model by 0.95 and the fundamental model by 0.05. The results are in the figure above. 
++ Thus, I essentially changed the weights of the model. I decided to weigh the poll model by 0.95 and the fundamental model by 0.05. The results are in the figure above. 
 + We can see that by decreasing the weight of the poll model by one percent and increasing the weight of the fundamental model by one percent, Biden wins Texas. This shows that the fundamental model heavily favors the democratic party. This could be partly because Q2 GDP growth rate and Trump's approval ratings have been historically low and we may see a large increase in voter turnout, which may impact a Republican's odds at winning for that state. 
 + Using the sensitivity analysis for the ensemble model, it was hard to get a prediction of when Trump wins the election. If we use a weight greater than 0.96 for the poll model and a weight less than 0.04 for the fundamental model, we have the same predictions as the current ensemble model of 0.96(Poll) + 0.04(Fundamental). 
 
