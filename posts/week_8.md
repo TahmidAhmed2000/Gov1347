@@ -73,15 +73,16 @@ Just like the FiveThirtyEight model, I relied heavily on polling data. The ensem
 ## Validation of Models
 
 ![](../figures/in_red.png)
-Figure 4. 
+Figure 4. In-Sample Validation for Red States
+
 
 
 ![](../figures/in_blue.png)
-Figure 5. 
+Figure 5. In-Sample Validation for Blue States
 
 
 ![](../figures/in_bg.png)
-Figure 6. 
+Figure 6. In-Sample Validation for Battleground States
 
 In this section, I will discuss the validation I used for my models. 
 
@@ -121,7 +122,6 @@ My final prediction is using the results from our ensemble model, which means th
 I prefer using the ensemble model because it weighs the poll model more heavily, especially since fundamentals tend to be noisy predictors as the election nears. However, given the impact of the Coronavirus pandemic and the expected record-breaking voter turnout, I do expect fundamentals to have some sort of impact on the election. 
 
 Additionally, I am interested to see how bias my models are in general after we find out the actual results of the election. There is a chance that polling data might be biased and could repeat what happened in 2016. Given that my polling model and ensemble model mainly represent what polls are saying, it would be interesting to see if the poll and ensemble model are very different from the actual results. This might tell America that we again need to do a better job in polling our citizens, especially since polling was heavily flawed in 2016. 
-
 
 
 
