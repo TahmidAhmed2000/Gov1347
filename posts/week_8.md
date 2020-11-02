@@ -84,7 +84,7 @@ We can see that red states have a high mean squared error using the poll model. 
 
 ## Predictability of Ensemble Model
 
-![](../figures/predicatability_final.png)
+![](../figures/predictability_final.png)
 Figure 8. 
 
 + According to Figure 8, I have plotted the 95% prediction intervals for Trump's predicted vote share in each state based on the ensemble model, giving us the uncertainty of our model.
