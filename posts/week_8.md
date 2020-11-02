@@ -78,8 +78,10 @@ Just like the FiveThirtyEight model, I relied heavily on polling data. The ensem
 ![](../figures/in_red.png)
 Figure 4. 
 
+
 ![](../figures/in_blue.png)
 Figure 5. 
+
 
 ![](../figures/in_bg.png)
 Figure 6. 
@@ -92,11 +94,8 @@ In this section, I will discuss the validation I used for my models.
 Figure 7. 
 
 + For out-of-sample validation, I essentially performed a cross-validation. I randomly divided the data into 2 subsets and used one subset for fitting the model and used the other for testing the model performance. I then repeated this procedure 1,000 times. 
-
 + For out-of-sample validation of the ensemble model, I calculated the predictive error by weighing the predictive errors from the poll and fundamental models with the same weights as the ensemble model. Given the chaaracteristics of the model, I could not really do an out-of-sample validation like how I did for the poll and fundamental models, so I thought this method I outlined can potentially work.
-
 + We can see that red states have a high mean squared error using the poll model for the in-sample fit. 
-
 + The predictive error using cross-validation seems to mainly be around 1.6 - 1.8 for all models.
 
 
@@ -106,19 +105,18 @@ Figure 7.
 Figure 8. 
 
 + According to Figure 8, I have plotted the 95% prediction intervals for Trump's predicted vote share in each state based on the ensemble model, giving us the uncertainty of our model.
-+ According to the model, all the battleground states cross the 50% threshold and are near the 50% vote share, meaning those states are most likely to be swing states. T
++ According to the model, all the battleground states cross the 50% threshold and are near the 50% vote share, meaning those states are most likely to be swing states. 
 + The above figure also shows the predictability of the model on a state by state basis. 
 
 
 ## Sensitivity Analysis
+I also decided to do a sensitivity analysis on our model. 
 
 ![](../figures/ensemble95_final.png)
 Figure 9. 
 
-I also decided to do a sensitivity analysis on our model. 
 + Thus, I essentially changed the weights of the model. I decided to weigh the Poll model by 0.95 and the fundamental model by 0.05. The results are in the figure above. 
 + We can see that by decreasing the weight of the poll model by one percent and increasing the weight of the fundamental model by one percent, Biden wins Texas. This shows that the fundamental model heavily favors the democratic party. This could be partly because Q2 GDP growth rate has been historically low as well as Trump's approval ratings for some states, which may impact a Republican's odds at winning for that state. 
-
 + Using the sensitivity analysis for the ensemble model, it was hard to get a prediction of when Trump wins the election. If we use a weight greater than 0.96 for the poll model and a weight less than 0.04 for the fundamental model, we have the same predictions as the current ensmeble model of 0.96(Poll) + 0.04(Fundamental). 
 
 ## Conclusion
