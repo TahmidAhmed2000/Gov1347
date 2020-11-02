@@ -7,6 +7,7 @@ The time has come! It is time to make our final prediction for the 2020 Presiden
 ## Models Logistics
 
 + I am using a state model for my prediction.
++ My model uses data filtered for Republican candidates.
 + To adjust for overfitting, I decided to separate America into three categories - red states, blue states, and battleground states - for my model. My grouping was based on how FiveThirtyEight grouped states. 
   + Red States - AK, IN, KS, MO, AL, AR, ID, KY, LA, MS, ND, OK, SD, MT, TN, WV, WY, SC, UT, NE
   + Blue States - CO, VA, CA, CT, DE, HI, IL, MD, MA, NJ, NY, OR, RI, VT, WA, ME, NM, NH
