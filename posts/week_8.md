@@ -75,15 +75,15 @@ Just like the FiveThirtyEight model, I relied heavily on polling data. The ensem
 ## Validation of Models
 
 ![](../figures/in_red.png)
-Figure 4. In-Sample Validation for Red States
+Figure 4. 
 
 
 ![](../figures/in_blue.png)
-Figure 5. In-Sample Validation for Blue States
+Figure 5. 
 
 
 ![](../figures/in_bg.png)
-Figure 6. In-Sample Validation for Battleground States
+Figure 6. 
 
 In this section, I will discuss the validation I used for my models. 
 
