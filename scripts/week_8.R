@@ -164,6 +164,8 @@ plot_usmap(data = pred_poll, regions = "states", values = "winner") +
   labs(fill = "Political Party",
        title = "2020 Presidential Election Prediction Map using Poll Model")
 
+ggsave("figures/poll_final.png")
+
 
 #####################################################################################################################
 
@@ -333,6 +335,7 @@ plot_usmap(data = pred_fund, regions = "states", values = "winner") +
   labs(fill = "Poltical Party",
        title = "2020 Presidential Election Prediction Map using Fundamental Model")
 
+ggsave("figures/fundamental_final.png")
 
 ########################################## Ensemble Model ###########################
 
@@ -352,6 +355,9 @@ plot_usmap(data = pred_ensemble, regions = "states", values = "winner") +
        title = "2020 Presidential Election Prediction Map using Ensemble Model",
        subtitle = "Weighting = 0.96*Poll + 0.04*Fundamental")
 
+ggsave("figures/ensemble_final.png")
+
+
 ######################################### Predictability ###########################
 # Visualize confidence intervals of final prediction
 ggplot(pred_ensemble, aes(x = pred, y = state, color = winner)) + 
@@ -368,6 +374,8 @@ ggplot(pred_ensemble, aes(x = pred, y = state, color = winner)) +
   geom_vline(xintercept = 50, lty = 2) +
   labs(title = "2020 Election 95% Prediction Intervals",
        subtitle = "Weighting: 0.96 * Polls + 0.04 * Fundamental")
+
+ggsave("figures/predictability_final.png")
 
 
 ################ Validation ###########################################
@@ -409,6 +417,8 @@ validate_r <- validate_r %>%
      )
 validate_r
 
+gtsave("figures/validation_r.png")
+
 # blur state tibble
 validate_d <- tribble(
   ~"Type of model", ~"R Square",  ~"RMSE",
@@ -416,12 +426,15 @@ validate_d <- tribble(
   "Fundamental", 0.18,  4.24,
 )
 
+
 validate_d <- validate_d %>%
   gt() %>%
   tab_header(
     title = "Validation for Blue states",
   )
 validate_d
+
+gtsave("figures/validation_d.png")
 
 # battleground state tibble
 validate_bg <- tribble(
@@ -438,6 +451,7 @@ validate_bg <- validate_bg %>%
 validate_bg
 
 
+gtsave("figures/validation_bg.png")
 
 
 

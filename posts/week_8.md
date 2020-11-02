@@ -19,3 +19,5 @@ Historical Republican two-party popular vote share versus state polling averages
 
 ![](../figures/poll_final.png)
 
+![](../figures/predicatability_final.png)
+
