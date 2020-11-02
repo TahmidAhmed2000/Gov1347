@@ -6,6 +6,7 @@ The time has come! It is time to make our final prediction for the 2020 Presiden
 
 ## Models Logistics
 
++ I am using a state model for my prediction.
 + To adjust for overfitting, I decided to separate America into three categories - red states, blue states, and battleground states - for my model. My grouping was based on how FiveThirtyEight grouped states. 
   + Red States - AK, IN, KS, MO, AL, AR, ID, KY, LA, MS, ND, OK, SD, MT, TN, WV, WY, SC, UT, NE
   + Blue States - CO, VA, CA, CT, DE, HI, IL, MD, MA, NJ, NY, OR, RI, VT, WA, ME, NM, NH
@@ -40,6 +41,7 @@ I decided to use a poll model because I learned from Nate Silver that polls are 
 ```
 R_pv2p ~ GDP_growth_qt + turnoutpct_change + net_app
 ```
++ GDP_growth_qt represents Q2 GDP growth rate
 + turnoutpct_change represents the percent change in voter turnout
 + net_app represents net approval for Republican candidate
 
@@ -61,7 +63,7 @@ I noticed that using the fundamental model has played a significant impact on ba
 Trump vote share = 0.96*Poll + 0.04*Fundamental
 ```
 
-Now that we have our poll model and fundamental model, I decided to then use an ensemble model where I weighted the poll model by 0.96 and the fundamental model by 0.04.
+Now that we have our poll model and fundamental model, I decided to then use an ensemble model where **I weighted the poll model by 0.96 and the fundamental model by 0.04**.
 + I decided to weigh the poll model very high using the logic of FiveThirtyEight's model. There is very little reliable data relating to fundamentals and the relationship between economic conditions and incumbent party's performance remains noisy, making it hard to predict future elections especially for 2020. 
 + In addition, according to [Abramowitz](https://www-cambridge-org.ezp-prod1.hul.harvard.edu/core/services/aop-cambridge-core/content/view/47BBC0D5A2B7913DBB37FDA0542FD7E8/S1049096520001389a.pdf/its_the_pandemic_stupid_a_simplified_model_for_forecasting_the_2020_presidential_election.pdf), "There are good reasons to expect that in 2020, two of the model’s (TFC model) predictors—the change in real GDP in the second quarter and the time-for-change dummy variable—will not perform as they normally do." However, I still think the fundamentals can still play an impact on the election, which is why I weighed them but very little.
 
@@ -116,19 +118,12 @@ Figure 9.
 
 ## Conclusion
 
-My final prediction is using the results from our ensemble model, which means that Biden will have 310 electoral votes while Trump will have 228 electoral votes. The 95% prediction interval for Biden is 144 electoral votes to 432 electoral votes based on Figure 8. Given the nature of the ensemble model, there is quite a lot of uncertainty with this model, particularly with battleground states. While the battleground states did have smaller prediction intervals than other states according to figure 8, they have been very close to 50%. This means they are quite easy to flip, or swing, come election time. 
+My final prediction is using the results from our ensemble model, which means that **Biden is projected to have 310 electoral votes while Trump is projected to have 228 electoral votes**. The **95% prediction interval for Biden is 144 electoral votes to 432 electoral votes** based on Figure 8. Given the nature of the ensemble model, there is quite a lot of uncertainty with this model, particularly with battleground states. While the battleground states did have smaller prediction intervals than other states according to figure 8, they have been very close to 50%. This means they are quite easy to flip, or swing, come election time. 
 
 I prefer using the ensemble model because it weighs the poll model more heavily, especially since fundamentals tend to be noisy predictors as the election nears. However, given the impact of the Coronavirus pandemic and the expected record-breaking voter turnout, I do expect fundamentals to have some sort of impact on the election. 
 
 Additionally, I am interested to see how bias my models are in general after we find out the actual results of the election. There is a chance that polling data might be biased and could repeat what happened in 2016. Given that my polling model and ensemble model mainly represent what polls are saying, it would be interesting to see if the poll and ensemble model are very different from the actual results. This might tell America that we again need to do a better job in polling our citizens, especially since polling was heavily flawed in 2016. 
 
-
-
-
-b
-144 to 394
-432 
-310
 
 
 
