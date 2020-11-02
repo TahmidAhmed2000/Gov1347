@@ -85,9 +85,9 @@ We can see that red states have a high mean squared error using the poll model. 
 ## Predictability of Ensemble Model
 
 ![](../figures/predicatability_final.png)
-Figure 4. 
+Figure 8. 
 
-+ According to Figure 4, I have plotted the 95% prediction intervals for Trump's predicted vote share in each state based on the ensemble model, giving us the uncertainty of our model.
++ According to Figure 8, I have plotted the 95% prediction intervals for Trump's predicted vote share in each state based on the ensemble model, giving us the uncertainty of our model.
 + According to the model, all the battleground states cross the 50% threshold and are near the 50% vote share, meaning those states are most likely to be swing states. T
 + he above figure also shows the predictability of the model on a state by state basis. 
 
@@ -95,7 +95,7 @@ Figure 4.
 ## Sensitivity Analysis
 
 ![](../figures/ensemble95_final.png)
-Figure 5. 
+Figure 9. 
 
 In order to validate our model, I decided to do a sensitivity analysis on our model. 
 + Thus, I essentially changed the weights of the model. I decided to weigh the Poll model by 0.95 and the fundamental model by 0.05. The results are in the figure above. 
