@@ -28,7 +28,7 @@ R_pv2p ~ avg_pollyr
 + avg_pollyr represents average polling support for Republican candidate
 
 + The first model I created was a poll model, which is a linear model. 
-+ The formula of the model uses average poll support for a republican as a predictor with a response variable that is Republican vote share and the model uses historical state-level polling data from 1972 to 2016. 
++ The formula of the model uses average poll support for a Republican as a predictor with a response variable that is Republican vote share and the model uses historical state-level polling data from 1972 to 2016. 
 + Furthermore, the linear model was used to predict Trump's vote share in each state for 2020 using poll averages from 10/31/20.  
 
 ![](../figures/poll_final.png)
