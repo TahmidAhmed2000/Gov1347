@@ -685,7 +685,7 @@ hist(outsamp_errorsinf1,
 
 
 
-
+# Tibble for Out-of-Sample Validation
 outsample <- tribble(
   ~"Type of state", ~"Poll Model",  ~"Fundamental Model", ~"Ensemble Model",
   "Blue", 1.884846,  1.698765, 1.877403,
