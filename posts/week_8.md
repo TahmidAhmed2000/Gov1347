@@ -96,7 +96,7 @@ In this section, I will discuss the validation I used for my models.
 Figure 7. 
 
 + For out-of-sample validation, I essentially performed cross-validation. I randomly divided the data into 2 subsets and used one subset for fitting the model and used the other for testing the model performance. I then repeated this procedure 1,000 times. 
-+ For out-of-sample validation of the ensemble model, I calculated the predictive error by weighing the predictive errors from the poll and fundamental models with the same weights as the ensemble model. Given the characteristics of the model, I could not really do an out-of-sample validation like how I did for the poll and fundamental models, so I thought this method I outlined can potentially work.
++ For out-of-sample validation of the ensemble model, I calculated the predictive error by weighing the predictive errors from the poll and fundamental models with the same weights as the ensemble model. Given the characteristics of the model and how I created it, I could not really do an out-of-sample validation like how I did for the poll and fundamental models, so I thought this method I outlined can potentially work.
 + The predictive error using cross-validation seems to mainly be around 1.6 - 1.8 for all models except that it is quite high for Red states using the poll model and ensemble model.
 
 
