@@ -76,7 +76,6 @@ Just like the FiveThirtyEight model, I relied heavily on polling data. The ensem
 Figure 4. In-Sample Validation for Red States
 
 
-
 ![](../figures/in_blue.png)
 Figure 5. In-Sample Validation for Blue States
 
@@ -117,7 +116,7 @@ Figure 9.
 
 ## Conclusion
 
-My final prediction is using the results from our ensemble model, which means that Biden will have 310 electoral votes while Trump will have 228 electoral votes. Given the nature of the ensemble model, there is quite a lot of uncertainty with this model, particularly with battleground states. While the battleground states did have smaller prediction intervals than other states according to figure 8, they have been very close to 50%. This means they are quite easy to flip, or swing, come election time. 
+My final prediction is using the results from our ensemble model, which means that Biden will have 310 electoral votes while Trump will have 228 electoral votes. The 95% prediction interval for Biden is 144 electoral votes to 432 electoral votes based on Figure 8. Given the nature of the ensemble model, there is quite a lot of uncertainty with this model, particularly with battleground states. While the battleground states did have smaller prediction intervals than other states according to figure 8, they have been very close to 50%. This means they are quite easy to flip, or swing, come election time. 
 
 I prefer using the ensemble model because it weighs the poll model more heavily, especially since fundamentals tend to be noisy predictors as the election nears. However, given the impact of the Coronavirus pandemic and the expected record-breaking voter turnout, I do expect fundamentals to have some sort of impact on the election. 
 
@@ -126,9 +125,10 @@ Additionally, I am interested to see how bias my models are in general after we 
 
 
 
-
-
-
+b
+144 to 394
+432 
+310
 
 
 
