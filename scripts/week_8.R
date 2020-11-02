@@ -417,7 +417,6 @@ validate_r <- validate_r %>%
      )
 validate_r
 
-gtsave(validate_r, "figures/validation_r.png")
 
 # blur state tibble
 validate_d <- tribble(
@@ -434,7 +433,6 @@ validate_d <- validate_d %>%
   )
 validate_d
 
-gtsave("figures/validation_d.png")
 
 # battleground state tibble
 validate_bg <- tribble(
@@ -451,55 +449,119 @@ validate_bg <- validate_bg %>%
 validate_bg
 
 
-gtsave("figures/validation_bg.png")
 
 
 
 
+lm(R_pv2p ~ avg_pollyr, data = hist_poll_r)
 
 
 
 
-
-
-### Out of Sample Validation for inflation
-
+########### Democrat Poll Model
+### Out of Sample Validation with Poll
 ## model testing: leave-one-out
-outsamp_modpollr <- lm(R_pv2p ~ avg_pollyr, hist_poll_r[hist_poll_r$year != 2016,])
-outsamp_predpollr <- predict(outsamp_modpollr, hist_poll_r[hist_poll_r$year  == 2016,])
-outsamp_truepollr <- hist_poll_r$R_pv2p[hist_poll_r$year == 2016] 
+outsamp_modrdi  <- lm(R_pv2p ~ avg_pollyr, hist_poll_d[hist_poll_d$year != 2016,])
+outsamp_predrdi <- predict(outsamp_modrdi, hist_poll_d[hist_poll_d$year == 2016,])
+outsamp_truerdi <- hist_poll_d$R_pv2p[hist_poll_d$year == 2016] 
 
 ## model testing: cross-validation (one run)
-years_outsamppollr <- sample(hist_poll_r$year, 8)
-modpollr <- lm(R_pv2p ~ avg_pollyr,
-             hist_poll_r[!(hist_poll_r$year %in% years_outsamppollr),])
+years_outsamprdi <- sample(hist_poll_d$year, 8)
+modrdi <- lm(R_pv2p ~ avg_pollyr,
+             hist_poll_d[!(hist_poll_d$year %in% years_outsamprdi),])
 
-outsamp_predpollr <- predict(modpollr,
-                           newdata = hist_poll_r[hist_poll_r$year %in% years_outsamppollr,])
+outsamp_predrdi <- predict(modrdi,
+                           newdata = hist_poll_d[hist_poll_d$year %in% years_outsamprdi,])
 
-mean(outsamp_predpollr - hist_poll_r$R_pv2p[hist_poll_r$year %in% years_outsamppollr])
+mean(outsamp_predrdi - hist_poll_d$R_pv2p[hist_poll_d$year %in% years_outsamprdi])
 
-## model testing: cross-validation (1000 runs) inflation
-outsamp_errorspollr <- sapply(1:1000, function(i){
-  years_outsamppollr <- sample(hist_poll_r$year, 8)
-  outsamp_modinf <- lm(pv2p ~ inflation,
-                       dat[!(dat$year %in% years_outsampinf),])
+## model testing: cross-validation (1000 runs) RDI
+outsamp_errorsrdi <- sapply(1:1000, function(i){
+  years_outsamprdi <- sample(hist_poll_d$year, 8)
+  outsamp_modrdi <- lm(R_pv2p ~ avg_pollyr,
+                       hist_poll_d[!(hist_poll_d$year %in% years_outsamprdi),])
+  outsamp_predrdi <- predict(outsamp_modrdi,
+                             newdata = hist_poll_d[hist_poll_d$year %in% years_outsamprdi,])
+  outsamp_truerdi <- hist_poll_d$R_pv2p[hist_poll_d$year %in% years_outsamprdi]
+  mean(outsamp_predrdi - outsamp_truerdi)
+})
+
+mean(abs(outsamp_errorsrdi))
+
+## histogram with RDI 
+hist(outsamp_errorsrdi,
+     xlab = "Figure 6",
+     main = "mean out-of-sample residual (RDI)\n(1000 runs of cross-validation)")
+
+
+########### Republican Poll Model
+### Out of Sample Validation with unemployment
+## model testing: leave-one-out
+outsamp_modune  <- lm(R_pv2p ~ avg_pollyr, hist_poll_r[hist_poll_r$year != 2016,])
+outsamp_predune <- predict(outsamp_modune, hist_poll_r[hist_poll_r$year == 2016,])
+outsamp_trueune <- hist_poll_r$R_pv2p[hist_poll_r$year == 2016] 
+
+## model testing: cross-validation (one run)
+years_outsampune <- sample(hist_poll_r$year, 8)
+modune <- lm(R_pv2p ~ avg_pollyr,
+             hist_poll_r[!(hist_poll_r$year %in% years_outsampune),])
+
+outsamp_predune <- predict(modune,
+                           newdata = hist_poll_r[hist_poll_r$year %in% years_outsampune,])
+
+mean(outsamp_predune - hist_poll_r$R_pv2p[hist_poll_r$year %in% years_outsampune])
+
+## model testing: cross-validation (1000 runs) avg_pollyr
+outsamp_errorsune <- sapply(1:1000, function(i){
+  years_outsampune <- sample(hist_poll_r$year, 8)
+  outsamp_modune <- lm(R_pv2p ~ avg_pollyr,
+                       hist_poll_r[!(hist_poll_r$year %in% years_outsampune),])
+  outsamp_predune <- predict(outsamp_modune,
+                             newdata = hist_poll_r[hist_poll_r$year %in% years_outsampune,])
+  outsamp_trueune <- hist_poll_r$R_pv2p[hist_poll_r$year %in% years_outsampune]
+  mean(outsamp_predune - outsamp_trueune)
+})
+
+mean(abs(outsamp_errorsune))
+
+## histogram with unemployment 
+hist(outsamp_errorsune,
+     xlab = "Figure 4",
+     main = "mean out-of-sample residual (unemployment)\n(1000 runs of cross-validation)")
+
+########## BG ############
+## model testing: leave-one-out
+outsamp_modinf  <- lm(R_pv2p ~ avg_pollyr, hist_poll_bg[hist_poll_bg$year != 2016,])
+outsamp_predinf <- predict(outsamp_modinf, hist_poll_bg[hist_poll_bg$year == 2016,])
+outsamp_trueinf <- hist_poll_bg$R_pv2p[hist_poll_bg$year == 2016] 
+
+## model testing: cross-valihist_poll_bgion (one run)
+years_outsampinf <- sample(hist_poll_bg$year, 8)
+modinf <- lm(R_pv2p ~ avg_pollyr,
+             hist_poll_bg[!(hist_poll_bg$year %in% years_outsampinf),])
+
+outsamp_predinf <- predict(modinf,
+                           newdata = hist_poll_bg[hist_poll_bg$year %in% years_outsampinf,])
+
+mean(outsamp_predinf - hist_poll_bg$R_pv2p[hist_poll_bg$year %in% years_outsampinf])
+
+## model testing: cross-valihist_poll_bgion (1000 runs) avg_pollyr
+outsamp_errorsinf <- sapply(1:1000, function(i){
+  years_outsampinf <- sample(hist_poll_bg$year, 8)
+  outsamp_modinf <- lm(R_pv2p ~ avg_pollyr,
+                       hist_poll_bg[!(hist_poll_bg$year %in% years_outsampinf),])
   outsamp_predinf <- predict(outsamp_modinf,
-                             newdata = dat[dat$year %in% years_outsampinf,])
-  outsamp_trueinf <- dat$pv2p[dat$year %in% years_outsampinf]
+                             newdata = hist_poll_bg[hist_poll_bg$year %in% years_outsampinf,])
+  outsamp_trueinf <- hist_poll_bg$R_pv2p[hist_poll_bg$year %in% years_outsampinf]
   mean(outsamp_predinf - outsamp_trueinf)
 })
 
 mean(abs(outsamp_errorsinf))
 
-## histogram with inflation
+## histogram with avg_pollyr
 hist(outsamp_errorsinf,
      xlab = "Figure 2",
-     main = "mean out-of-sample residual (inflation)\n(1000 runs of cross-validation)")
-
-
-
-
+     main = "mean out-of-sample residual (avg_pollyr)\n(1000 runs of cross-validation)")
 
 
 
