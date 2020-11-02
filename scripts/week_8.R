@@ -113,7 +113,7 @@ dem_poll <- data.frame(pred = predict(poll_lm_d, newdata = new_poll_d, interval 
   rename(state = dem_states)
 
 ####################################################################
-# Did the same thing for battleground states
+# Repeat for battleground states
 
 pvstate_bg <- read_csv("data/popvote_bystate_1948-2016.csv")
 poll_state_bg <- read_csv("data/pollavg_bystate_1968-2016.csv")
@@ -206,7 +206,7 @@ turnout_df <- read_csv("data/turnout_1980-2016.csv") %>%
 
 turnout_df$state <- state.abb[match(turnout_df$state, state.name)]
 
-# Get percent change from turnour
+# Get percent change from turnout
 turnout_df <- turnout_df %>%
   filter(state != "NA") %>%
   mutate(turnoutpct_change = turnout_pct - lag(turnout_pct, order_by = year)) %>%
@@ -232,7 +232,7 @@ approval_df <- approval_df %>%
 approval_df$year = as.double(approval_df$year)
 
 ####################################################################
-# Join fundamental data to get historical data
+# Join historical fundamental data to get full historical data
 hist_full_data_r <- poll_state_bg %>%
   filter(party == "republican") %>%
   filter(weeks_left <= 1) %>%
@@ -348,7 +348,6 @@ plot_usmap(data = pred_fund, regions = "states", values = "winner") +
 ggsave("figures/fundamental_final.png")
 
 ####################################################################
-
 # Create ensemble model using weights
 pred_ensemble <- pred_poll %>%
   left_join(pred_fund, by = "state") %>%
@@ -478,7 +477,7 @@ outsamp_predrdi <- predict(modrdi,
 
 mean(outsamp_predrdi - hist_poll_d$R_pv2p[hist_poll_d$year %in% years_outsamprdi])
 
-## model testing: cross-validation (1000 runs) RDI
+## model testing: cross-validation (1000 runs) 
 outsamp_errorsrdi <- sapply(1:1000, function(i){
   years_outsamprdi <- sample(hist_poll_d$year, 8)
   outsamp_modrdi <- lm(R_pv2p ~ avg_pollyr,
@@ -494,7 +493,7 @@ mean(abs(outsamp_errorsrdi))
 ## histogram 
 hist(outsamp_errorsrdi,
      xlab = "Figure 6",
-     main = "mean out-of-sample residual (RDI)\n(1000 runs of cross-validation)")
+     main = "mean out-of-sample residual\n(1000 runs of cross-validation)")
 
 
 ####################################################################
@@ -516,7 +515,7 @@ outsamp_predune <- predict(modune,
 
 mean(outsamp_predune - hist_poll_r$R_pv2p[hist_poll_r$year %in% years_outsampune])
 
-## model testing: cross-validation (1000 runs) avg_pollyr
+## model testing: cross-validation (1000 runs) 
 outsamp_errorsune <- sapply(1:1000, function(i){
   years_outsampune <- sample(hist_poll_r$year, 8)
   outsamp_modune <- lm(R_pv2p ~ avg_pollyr,
@@ -532,7 +531,7 @@ mean(abs(outsamp_errorsune))
 ## histogram  
 hist(outsamp_errorsune,
      xlab = "Figure 4",
-     main = "mean out-of-sample residual (unemployment)\n(1000 runs of cross-validation)")
+     main = "mean out-of-sample residual\n(1000 runs of cross-validation)")
 
 ####################################################################
 ### Out of Sample Validation with Battleground poll model
@@ -543,7 +542,7 @@ outsamp_predinf <- predict(outsamp_modinf, hist_poll_bg[hist_poll_bg$year == 201
 outsamp_trueinf <- hist_poll_bg$R_pv2p[hist_poll_bg$year == 2016] 
 mean(outsamp_predinf - outsamp_trueinf)
 
-## model testing: cross-valihist_poll_bgion (one run)
+## model testing: cross-validation (one run)
 years_outsampinf <- sample(hist_poll_bg$year, 8)
 modinf <- lm(R_pv2p ~ avg_pollyr,
              hist_poll_bg[!(hist_poll_bg$year %in% years_outsampinf),])
@@ -553,7 +552,7 @@ outsamp_predinf <- predict(modinf,
 
 mean(outsamp_predinf - hist_poll_bg$R_pv2p[hist_poll_bg$year %in% years_outsampinf])
 
-## model testing: cross-valihist_poll_bgion (1000 runs) avg_pollyr
+## model testing: cross-validation (1000 runs) 
 outsamp_errorsinf <- sapply(1:1000, function(i){
   years_outsampinf <- sample(hist_poll_bg$year, 8)
   outsamp_modinf <- lm(R_pv2p ~ avg_pollyr,
@@ -569,11 +568,11 @@ mean(abs(outsamp_errorsinf))
 ## histogram 
 hist(outsamp_errorsinf,
      xlab = "Figure 2",
-     main = "mean out-of-sample residual (avg_pollyr)\n(1000 runs of cross-validation)")
+     main = "mean out-of-sample residual\n(1000 runs of cross-validation)")
 
 
 ####################################################################
-# Out-of-sample validation for democratic fundamental model
+# Out-of-sample validation for Democratic fundamental model
 
 ## model testing: leave-one-out
 outsamp_modrdi1  <- lm(R_pv2p ~ GDP_growth_qt + turnoutpct_change + net_app, hist_full_data_d[hist_full_data_d$year != "2016",])
@@ -590,7 +589,7 @@ outsamp_predrdi1 <- predict(modrdi1,
 
 mean(outsamp_predrdi1 - hist_full_data_d$R_pv2p[hist_full_data_d$year %in% years_outsamprdi1])
 
-## model testing: cross-validation (1000 runs) RDI
+## model testing: cross-validation (1000 runs) 
 outsamp_errorsrdi1 <- sapply(1:1000, function(i){
   years_outsamprdi1 <- sample(hist_full_data_d$year, 8)
   outsamp_modrdi1 <- lm(R_pv2p ~ avg_pollyr,
@@ -606,7 +605,7 @@ mean(abs(outsamp_errorsrdi1))
 ## histogram  
 hist(outsamp_errorsrdi1,
      xlab = "Figure 6",
-     main = "mean out-of-sample residual (RDI)\n(1000 runs of cross-validation)")
+     main = "mean out-of-sample residual\n(1000 runs of cross-validation)")
 
 
 
@@ -628,7 +627,7 @@ outsamp_predune1 <- predict(modune1,
 
 mean(outsamp_predune1 - hist_full_data_r$R_pv2p[hist_full_data_r$year %in% years_outsampune1])
 
-## model testing: cross-validation (1000 runs) avg_pollyr
+## model testing: cross-validation (1000 runs) 
 outsamp_errorsune1 <- sapply(1:1000, function(i){
   years_outsampune1 <- sample(hist_full_data_r$year, 8)
   outsamp_modune1 <- lm(R_pv2p ~ avg_pollyr,
@@ -644,7 +643,7 @@ mean(abs(outsamp_errorsune1))
 ## histogram  
 hist(outsamp_errorsune1,
      xlab = "Figure 4",
-     main = "mean out-of-sample residual (unemployment)\n(1000 runs of cross-validation)")
+     main = "mean out-of-sample residual\n(1000 runs of cross-validation)")
 
 ####################################################################
 ### Out of Sample Validation with Battleground fundamental model
@@ -654,7 +653,7 @@ outsamp_modinf1  <- lm(R_pv2p ~ GDP_growth_qt + turnoutpct_change + net_app, his
 outsamp_predinf1 <- predict(outsamp_modinf1, hist_full_data_bg[hist_full_data_bg$year == 2016,])
 outsamp_trueinf1 <- hist_full_data_bg$R_pv2p[hist_full_data_bg$year == 2016] 
 
-## model testing: cross-valihist_poll_bgion (one run)
+## model testing: cross-validation (one run)
 years_outsampinf1 <- sample(hist_full_data_bg$year, 8)
 modinf1 <- lm(R_pv2p ~ avg_pollyr,
              hist_full_data_bg[!(hist_full_data_bg$year %in% years_outsampinf1),])
@@ -664,7 +663,7 @@ outsamp_predinf1 <- predict(modinf1,
 
 mean(outsamp_predinf1 - hist_full_data_bg$R_pv2p[hist_full_data_bg$year %in% years_outsampinf1])
 
-## model testing: cross-valihist_poll_bgion (1000 runs) avg_pollyr
+## model testing: cross-validation (1000 runs) 
 outsamp_errorsinf1 <- sapply(1:1000, function(i){
   years_outsampinf1 <- sample(hist_full_data_bg$year, 8)
   outsamp_modinf1 <- lm(R_pv2p ~ avg_pollyr,
@@ -680,7 +679,7 @@ mean(abs(outsamp_errorsinf1))
 ## histogram
 hist(outsamp_errorsinf1,
      xlab = "Figure 2",
-     main = "mean out-of-sample residual (avg_pollyr)\n(1000 runs of cross-validation)")
+     main = "mean out-of-sample residual\n(1000 runs of cross-validation)")
 
 
 
