@@ -63,6 +63,25 @@ Figure 3.
 
 Just like the FiveThirtyEight model, I relied heavily on polling data. The ensemble model predicts Biden to win with 310 electoral votes and Trump to lose with 228 votes. Whie there are not necessarily any glaring predictions, it is important to understand that there is uncertainty with this model. 
 
+## Validation of Models
+
+![](../figures/in_red.png)
+Figure 4. 
+![](../figures/in_blue.png)
+Figure 5. 
+![](../figures/in_bg.png)
+Figure 6. 
+
+In this section, I will discuss the validation I used for my models. First off, the in-sample fit, the statistics are shown above for each type of state. We can see tht the poll model typically has the higher R-Square for each type of state than the fundamental model. It is interesting to note, however, that while the R-square is quite high for the poll model for blue states, it's RMSE is pretty high. Thus, this shows that the models do have some sort of unpredictability. 
+
+![](../figures/in_bg.png)
+Figure 7. 
+
+For out-of-sample validation, I randomly divided the data into 2 subsets and used one subset for fitting the model and used the other for testing the model performance. I then performed a cross-validation and then calculated the predictive error of cross-validation. For the ensemble model, I calculated the predictive error by weighting the predictive errors from the poll and fundamental models. 
+
+We can see that red states have a high mean squared error using the poll model. However, for the most part, the predictive error using cross-validation seems to mainly be around 1.6 - 1.8. 
+
+
 ## Predictability of Ensemble Model
 
 ![](../figures/predicatability_final.png)
