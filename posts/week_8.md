@@ -72,7 +72,7 @@ Now that we have our poll model and fundamental model, I decided to then use an 
 ![](../figures/ensemble_final.png)
 Figure 3.
 
-Just like the FiveThirtyEight model, I relied heavily on polling data. The ensemble model predicts Biden to win with 310 electoral votes and Trump to lose with 228 votes. While there are not necessarily any glaring predictions for a state, it is important to understand that there is uncertainty with this model, which I will talk about later on. 
+Just like the FiveThirtyEight model, I relied heavily on polling data. The ensemble model predicts **Biden to win with 310 electoral votes and Trump to lose with 228 votes**. While there are not necessarily any glaring predictions for a state, it is important to understand that there is uncertainty with this model, which I will talk about later on. 
 
 ## Validation of Models
 
