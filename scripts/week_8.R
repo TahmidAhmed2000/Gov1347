@@ -417,7 +417,7 @@ validate_r <- validate_r %>%
      )
 validate_r
 
-gtsave("figures/validation_r.png")
+gtsave(validate_r, "figures/validation_r.png")
 
 # blur state tibble
 validate_d <- tribble(
@@ -452,6 +452,67 @@ validate_bg
 
 
 gtsave("figures/validation_bg.png")
+
+
+
+
+
+
+
+
+
+
+### Out of Sample Validation for inflation
+
+## model testing: leave-one-out
+outsamp_modpollr <- lm(R_pv2p ~ avg_pollyr, hist_poll_r[hist_poll_r$year != 2016,])
+outsamp_predpollr <- predict(outsamp_modpollr, hist_poll_r[hist_poll_r$year  == 2016,])
+outsamp_truepollr <- hist_poll_r$R_pv2p[hist_poll_r$year == 2016] 
+
+## model testing: cross-validation (one run)
+years_outsamppollr <- sample(hist_poll_r$year, 8)
+modpollr <- lm(R_pv2p ~ avg_pollyr,
+             hist_poll_r[!(hist_poll_r$year %in% years_outsamppollr),])
+
+outsamp_predpollr <- predict(modpollr,
+                           newdata = hist_poll_r[hist_poll_r$year %in% years_outsamppollr,])
+
+mean(outsamp_predpollr - hist_poll_r$R_pv2p[hist_poll_r$year %in% years_outsamppollr])
+
+## model testing: cross-validation (1000 runs) inflation
+outsamp_errorspollr <- sapply(1:1000, function(i){
+  years_outsamppollr <- sample(hist_poll_r$year, 8)
+  outsamp_modinf <- lm(pv2p ~ inflation,
+                       dat[!(dat$year %in% years_outsampinf),])
+  outsamp_predinf <- predict(outsamp_modinf,
+                             newdata = dat[dat$year %in% years_outsampinf,])
+  outsamp_trueinf <- dat$pv2p[dat$year %in% years_outsampinf]
+  mean(outsamp_predinf - outsamp_trueinf)
+})
+
+mean(abs(outsamp_errorsinf))
+
+## histogram with inflation
+hist(outsamp_errorsinf,
+     xlab = "Figure 2",
+     main = "mean out-of-sample residual (inflation)\n(1000 runs of cross-validation)")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
