@@ -8,8 +8,8 @@ library(cowplot)
 library(sjPlot)
 library(magrittr)
 library(scales)
-
-
+library(performance)
+library(gt)
 
 # Formula: Incumbent Vote Share = Poll average + GDP Q2 Growth + Approval Rating + turnoutpct_change
 
@@ -109,7 +109,6 @@ hist_poll_d <- poll_state_d %>%
 poll_lm_d <- lm(R_pv2p ~ avg_pollyr, data = hist_poll_d)
 summary(poll_lm_d)
 
-poll_lm_dd <- lm(D_pv2p ~ avg_pollyr, data = hist_poll_d)
 
 dem_poll <- data.frame(pred = predict(poll_lm_d, newdata = new_poll_d, interval = "prediction"), dem_states) %>%
   rename(state = dem_states)
@@ -162,8 +161,9 @@ plot_usmap(data = pred_poll, regions = "states", values = "winner") +
   scale_fill_manual(breaks = c("Democrat", "Republican"),
                     values = c(muted("blue"), "red3")) +
   theme_void() +
-  labs(fill = "Projected Winner",
-       title = "Forecasted Winners in Each State")
+  labs(fill = "Political Party",
+       title = "2020 Presidential Election Prediction Map using Poll Model")
+
 
 #####################################################################################################################
 
@@ -330,8 +330,8 @@ plot_usmap(data = pred_fund, regions = "states", values = "winner") +
   scale_fill_manual(breaks = c("Democrat", "Republican"),
                     values = c(muted("blue"), "red3")) +
   theme_void() +
-  labs(fill = "Projected Winner",
-       title = "Forecasted Winners in Each State")
+  labs(fill = "Poltical Party",
+       title = "2020 Presidential Election Prediction Map using Fundamental Model")
 
 
 ########################################## Ensemble Model ###########################
@@ -348,8 +348,9 @@ plot_usmap(data = pred_ensemble, regions = "states", values = "winner") +
   scale_fill_manual(breaks = c("Democrat", "Republican"),
                     values = c(muted("blue"), "red3")) +
   theme_void() +
-  labs(fill = "Projected Winner",
-       title = "Forecasted Winners in Each State")
+  labs(fill = "Political Party",
+       title = "2020 Presidential Election Prediction Map using Ensemble Model",
+       subtitle = "Weighting = 0.96*Poll + 0.04*Fundamental")
 
 ######################################### Predictability ###########################
 # Visualize confidence intervals of final prediction
@@ -363,15 +364,82 @@ ggplot(pred_ensemble, aes(x = pred, y = state, color = winner)) +
   theme(axis.text.y = element_text(size = 7),
         legend.position = "none") + 
   ylab("") + 
-  xlab("Predicted Republican Vote Share %") + 
+  xlab("Predicted Trump Vote Share %") + 
   geom_vline(xintercept = 50, lty = 2) +
   labs(title = "2020 Election 95% Prediction Intervals",
-       subtitle = "Weighted Ensemble Model: 
-       Polls, Q2 GDP Growth, Approval Rating and Turnout Percent Change", 
-       caption = "Weighting: 0.96 * Polls + 0.04 * Fundamentals")
+       subtitle = "Weighting: 0.96 * Polls + 0.04 * Fundamental")
 
 
-########################### D.C. ###############################################
+################ Validation ###########################################
+
+# Validation for Red state models
+summary(poll_lm_r) #0.42
+rmse(poll_lm_r) #5.29
+
+summary(fund_lm_r) #0.005
+rmse(fund_lm_r) #5.35
+
+# Validation for Blue State Model
+summary(poll_lm_d) #0.51
+rmse(poll_lm_d) #4.48
+
+summary(fund_lm_d) #0.18
+rmse(fund_lm_d) # 4.24
+
+# Validation for BG State Model
+summary(poll_lm_bg) #0.46
+rmse(poll_lm_bg) #2.73
+
+summary(fund_lm_bg) #0.03
+rmse(fund_lm_bg) # 3.67
+
+# Create a gt table based on preprocessed
+
+# red state tibble
+validate_r <- tribble(
+  ~"Type of model", ~"R Square",  ~"RMSE",
+  "Poll", 0.42,  5.29,
+  "Fundamental", 0.005,  5.35,
+)
+ 
+validate_r <- validate_r %>%
+   gt() %>%
+   tab_header(
+     title = "Validation for Red states",
+     )
+validate_r
+
+# blur state tibble
+validate_d <- tribble(
+  ~"Type of model", ~"R Square",  ~"RMSE",
+  "Poll", 0.51,  4.48,
+  "Fundamental", 0.18,  4.24,
+)
+
+validate_d <- validate_d %>%
+  gt() %>%
+  tab_header(
+    title = "Validation for Blue states",
+  )
+validate_d
+
+# battleground state tibble
+validate_bg <- tribble(
+  ~"Type of model", ~"R Square",  ~"RMSE",
+  "Poll", 0.46,  2.73,
+  "Fundamental", 0.03,  3.67,
+)
+
+validate_bg <- validate_bg %>%
+  gt() %>%
+  tab_header(
+    title = "Validation for Battleground states",
+  )
+validate_bg
+
+
+
+
 
 
 
