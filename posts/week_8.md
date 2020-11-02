@@ -42,7 +42,7 @@ I decided to use a poll model because I learned from Nate Silver that polls are 
 R_pv2p ~ GDP_growth_qt + turnoutpct_change + net_app
 ```
 + GDP_growth_qt represents Q2 GDP growth rate
-+ turnoutpct_change represents the percent change in voter turnout
++ turnoutpct_change represents the percent change in voter turnout from the previous election
 + net_app represents net approval for Republican candidate
 
 + The next model I want to look at is a fundamental model, which is a linear model. 
@@ -89,7 +89,7 @@ Figure 6.
 In this section, I will discuss the validation I used for my models. 
 
 + First off, for the in-sample fit, the statistics are shown above for each type of state. We can see that the poll model typically has a higher R-Square than the fundamental model for all types of states. It is interesting to note, however, that while the R-square is quite high for the poll model for blue states, it's RMSE is pretty high. 
-+ We can see that red states have a high mean squared error using the poll model for the in-sample fit. 
++ We can see that red states have a high RMSE using the poll model for the in-sample fit. 
 
 
 ![](../figures/outsample.png)
@@ -97,7 +97,7 @@ Figure 7.
 
 + For out-of-sample validation, I essentially performed cross-validation. I randomly divided the data into 2 subsets and used one subset for fitting the model and used the other for testing the model performance. I then repeated this procedure 1,000 times. 
 + For out-of-sample validation of the ensemble model, I calculated the predictive error by weighing the predictive errors from the poll and fundamental models with the same weights as the ensemble model. Given the characteristics of the model, I could not really do an out-of-sample validation like how I did for the poll and fundamental models, so I thought this method I outlined can potentially work.
-+ The predictive error using cross-validation seems to mainly be around 1.6 - 1.8 for all models.
++ The predictive error using cross-validation seems to mainly be around 1.6 - 1.8 for all models although it is quite high for Red states using the poll model and ensemble model.
 
 
 ## Predictability of Ensemble Model
