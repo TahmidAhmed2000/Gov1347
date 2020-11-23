@@ -52,13 +52,14 @@ Let's first recap on my prediction model to get a better picture of what it was.
 * In my model, I decided to classify approval, Q2 GDP growth, and turnout as fundamentals
 
 * Thus, **my ensemble model weighted the poll model (using only polls) by 0.96 and the fundamental model (using only fundamentals) by 0.04** as I weighted the model based on FiveThirtyEight's reasoning that polls are better predictors as the election nears since fundamentals become more noisy instead.
-  + ```Trump vote share = 0.96*Poll + 0.04*Fundamental```
+  + Trump vote share = 0.96(Poll) + 0.04(Fundamental)
+
 
 * My final prediction using the ensemble model was that **Biden was projected to win 310 electoral votes while Trump is projected to win 228 votes**, meaning Biden would become president-elect of the United States.
 
 ### Patterns and Accuracy
 
-Overall, I am pretty satisfied with how my model turned out. While I did miss a few states, I was quite happy that  predicted some battleground states correctly.
+Overall, I am pretty satisfied with how my model turned out. While I did miss a few states and this is my first election forecast, I was quite happy that I predicted some battleground states correctly.
 
 ```{r join,echo=FALSE, message=FALSE, warning=FALSE}
 # Read data needed
@@ -166,7 +167,9 @@ plot_geo(joined, locationmode = 'USA-states') %>%
     geo = g) %>% colorbar(title = "Difference")
 ```
 
-Furthermore, the map above shows the difference between Trump's actual and predicted two party vote share in each state. A negative difference means that Trump was overpredicted for that particular state while a positive difference means that Trump was underpredicted for that particular state. I will say that it is interesting where Trump was greatly overpredicted or greatly underpredicted are states that are not battleground states. This makes sense because states that are traditionally red or blue and not battleground typically have less polling as there is a small chance that those states will flip. This is why we may see a state like Alaska with little polling where Trump is greatly overpredicted there.  
+Furthermore, the map above shows the difference between Trump's actual and predicted two party vote share in each state. A negative difference means that Trump was overpredicted for that particular state while a positive difference means that Trump was underpredicted for that particular state. 
+
+* It is interesting to note that states where Trump was greatly overpredicted or greatly underpredicted are states that are not battleground states. This makes sense because states that are traditionally red or blue and not battleground typically have less polling as there is a small chance that those states will flip. This is why we may see a state like Alaska with little polling where Trump be greatly overpredicted there.  
 
 ```{r, echo=FALSE}
 # generating histograms
@@ -181,6 +184,40 @@ joined %>%
     theme_classic())
 ```
 
-The above historgram shows the error distribution for my prediction model and the model's average error seems to be mainly  normally distributed around 0. 
+* The above histogram shows the error distribution for my prediction model and the model's average error seems to be mainly  normally distributed around 0. 
+
+### Hypotheses for why my model was inaccurate
+
+Now that we have went over my prediction model, it is important to look at possible hypotheses for the inaccuracies seen in my model. My model seemed to incorrectly predict the results for battleground states in particular and it is important we pay attention to the reasons why. Below are my hypotheses for explaining the inaccuracies of my model:
+
+* One hypothesis to explain the inaccuracy of my model was that it failed to take into account the recent voter trends in particular states. For example, Georgia and Texas have been trending blue recently but my model failed to take note of this. This could be because my model relied more heavily on historical polling averages and so since Georgia and Texas were traditionally red states, my model would predict the same for 2020.
+  + Moreover, my model failed to consider the recent voter trends in populous counties. For example, Miami-Dade County saw became much more red than 2016 and heavily helped Trump win Florida again. Likewise, Fulton county in Georgia heavily favored Joe Biden in 2020, which played a significant role in turning Georgia blue. Thus, it is important that prediction models take into consideration trends not just in states but in counties as well since some counties alone can determine the overall result for the state it is in. 
+  
+* While my model took into consideration the expected increase in turnout rate for the 2020 election, my model failed to take into consideration the turnout rates for different groups. For example, Stacy Abrams played a crucial role in black voter-turnout in Georgia in favor for Biden. The same goes for the large Latinx turnout in Arizona and Nevada, which also helped Biden. However, there were many Latinos that voted for Trump particularly in South Texas and Florida. Given the large turnout rates for some of these groups, they can play a significant role in determining the election. 
+
+* Another hypothesis is that my model relied heavily on inaccurate polls. Some polls in 2020 were fairly [inaccurate](https://www.scientificamerican.com/article/why-polls-were-mostly-wrong/) because they were non-representative of voters and there was non-response bias, particularly from conservatives. On average, polls were off by 2.5 points in battleground states. Given the inaccuracy of polls, this may explain why my model had inaccuracies, especially since I weighted the poll model by 0.96 in my ensemble model. 
+
++ Another hypothesis is that the state Q2 GDP growth rate as a fundamental variable may have hurt Trump more than it was supposed to, especially in battleground states and traditionally red states. This is because economic predictors were very noisy this year due to a recession caused by Trump's handling of the Covid pandemic. Since the 2020 economy was an anomaly, it probably would be best to not use economic predictors in my model. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
