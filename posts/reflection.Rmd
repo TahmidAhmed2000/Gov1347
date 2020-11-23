@@ -103,6 +103,7 @@ Above is a comparison between my predictions and the actual results of the 2020 
 
 + The states that **I predicted incorrectly were Arizona, Nebraska, Florida, Wisconsin, Georgia, and Ohio**.
 + This means that my **Classification Accuracy is 88%**. 
++ My prediction **overpredicted 4 electoral college votes** for Biden.
 
 ```{r, echo=FALSE}
 # Calculating the mse and rmse for all states
@@ -119,7 +120,7 @@ corr <- joined %>%
 ```
 
 ```{r joinedplot, echo=FALSE, warning=FALSE}
-# Plotting actual vs predicted state pv2p
+# Plotting actual vs predicted state R_pv2p
 joined_plot <- joined %>% 
   ggplot(aes(x = pred, y = R_pv2p, color = winner_pv, labels = state)) +
   geom_point() + 
@@ -172,7 +173,7 @@ Furthermore, the map above shows the difference between Trump's actual and predi
 * It is interesting to note that states where Trump was greatly overpredicted or greatly underpredicted are states that are not battleground states. This makes sense because states that are traditionally red or blue and not battleground typically have less polling as there is a small chance that those states will flip. This is why we may see a state like Alaska with little polling where Trump be greatly overpredicted there.  
 
 ```{r, echo=FALSE}
-# generating histograms
+# create histogram
 ggplotly(
 joined %>% 
     ggplot(aes(diff)) +
@@ -190,16 +191,24 @@ joined %>%
 
 Now that we have went over my prediction model, it is important to look at possible hypotheses for the inaccuracies seen in my model. My model seemed to incorrectly predict the results for battleground states in particular and it is important we pay attention to the reasons why. Below are my hypotheses for explaining the inaccuracies of my model:
 
-* One hypothesis to explain the inaccuracy of my model was that it failed to take into account the recent voter trends in particular states. For example, Georgia and Texas have been trending blue recently but my model failed to take note of this. This could be because my model relied more heavily on historical polling averages and so since Georgia and Texas were traditionally red states, my model would predict the same for 2020.
-  + Moreover, my model failed to consider the recent voter trends in populous counties. For example, Miami-Dade County saw became much more red than 2016 and heavily helped Trump win Florida again. Likewise, Fulton county in Georgia heavily favored Joe Biden in 2020, which played a significant role in turning Georgia blue. Thus, it is important that prediction models take into consideration trends not just in states but in counties as well since some counties alone can determine the overall result for the state it is in. 
+* One hypothesis to explain the inaccuracy of my model was that it failed to take into account the **recent voter trends in particular states**. For example, Georgia and Texas have been trending blue recently but my model failed to take note of this. This could be because my model relied more heavily on historical polling averages and so since Georgia and Texas were traditionally red states, my model would predict the same for 2020.
+  + Moreover, my model failed to consider the **recent voter trends in populous counties**. For example, Miami-Dade County became much more red in 2020 than in 2016 and heavily helped Trump win Florida again. Likewise, Fulton county in Georgia heavily favored Joe Biden in 2020, which played a significant role in turning Georgia blue. Thus, it is important that prediction models take into consideration trends not just in states but in counties as well since some counties alone can determine the overall result for the state it is in. 
   
-* While my model took into consideration the expected increase in turnout rate for the 2020 election, my model failed to take into consideration the turnout rates for different groups. For example, Stacy Abrams played a crucial role in black voter-turnout in Georgia in favor for Biden. The same goes for the large Latinx turnout in Arizona and Nevada, which also helped Biden. However, there were many Latinos that voted for Trump particularly in South Texas and Florida. Given the large turnout rates for some of these groups, they can play a significant role in determining the election. 
+* While my model took into consideration the expected increase in turnout rate for the 2020 election, my model failed to take into consideration the **turnout rates for different demographics** For example, [Stacy Abrams](https://hbr.org/2020/11/how-biden-won-back-enough-of-the-white-working-class) played a crucial role in black voter-turnout in Georgia in favor for Biden. The same goes for the large Latinx turnout in Arizona and Nevada, which also helped Biden. However, there were many Latinos that voted for Trump particularly in South Texas and Florida. Given the large turnout rates for some of these groups, they can play a significant role in determining the election. 
 
-* Another hypothesis is that my model relied heavily on inaccurate polls. Some polls in 2020 were fairly [inaccurate](https://www.scientificamerican.com/article/why-polls-were-mostly-wrong/) because they were non-representative of voters and there was non-response bias, particularly from conservatives. On average, polls were off by 2.5 points in battleground states. Given the inaccuracy of polls, this may explain why my model had inaccuracies, especially since I weighted the poll model by 0.96 in my ensemble model. 
+* Another hypothesis is that my model relied heavily on **inaccurate polls**. Some polls in 2020 were fairly [inaccurate](https://www.scientificamerican.com/article/why-polls-were-mostly-wrong/) because they were non-representative of voters and there was non-response bias, particularly from conservatives. On average, polls were off by [2.5 points](https://www.scientificamerican.com/article/why-polls-were-mostly-wrong/) in battleground states. Given the inaccuracy of polls, this may explain why my model had inaccuracies, especially since I weighted the poll model by 0.96 in my ensemble model. 
 
-+ Another hypothesis is that the state Q2 GDP growth rate as a fundamental variable may have hurt Trump more than it was supposed to, especially in battleground states and traditionally red states. This is because economic predictors were very noisy this year due to a recession caused by Trump's handling of the Covid pandemic. Since the 2020 economy was an anomaly, it probably would be best to not use economic predictors in my model. 
++ Another hypothesis is that **using the state Q2 GDP growth rate as a fundamental variable may have hurt Trump more than it was supposed to**, especially in battleground states and traditionally red states. This is because economic predictors were very noisy this year due to a recession caused by Trump's handling of the Covid pandemic. Since the 2020 economy was an anomaly, it probably would be best to not use economic predictors in my model. I would also mention that this used 2020 Q2 GDP growth rte, which may not be reflective of the economy as the election was taken place during Q3, and GDP growth rates are drastically different in Q3 from Q2. 
 
+### Proposed tests to test hypotheses
 
+* To test the first hypothesis that states and counties have partisan shifts (which can impact the accuracy of my model), I can look at recent voting trends in such states and counties. These states are likely battleground states and the counties are likely in battleground states. Moreover, we can look at how states and counties voted in the 2016 presidential election, the 2018 midterm election, and the 2020 election. We can thus analyze any trends with regressions and correlations and if we see any trends where certain states and counties are shifting blue or red, that is something to take note of. One example of a trend that we may see is how [southern Texas counties](https://www.texastribune.org/2020/11/16/split-ticket-voting-texas-republicans/) have been voting towards more red overtime in comparison to the 2008 election. 
+
+* To test the second hypothesis, we can run a linear regression model between the popular vote share for a presidential candidate (say the incumbent) and the change in turnout for different demographics. Through this model, we may have a better idea of not only how changes in turnout rates from different demographics may impact election forecasting but also how they may affect democratic or republican popular vote share. Furthermore, it may also make sense to run the model on a per county basis since it was evidenced from 2020 that certain counties see greater turnout rates from particular demographics than other counties. 
+
+* To test the third hypothesis, one test that can be used is create a predictive linear model for the popular vote share for a candidate only using recent polls. Given that historical polls may not be as predictive for today's elections, it may make sense to only use recent polls like from 2016 onward. This might be because there was never really a president with the character of Trump and so there may be non-response bias among republicans as some republicans may be afraid to alert pollsters that they will vote for Trump. Moreover, it would also make sense to use polls that are high in quality, which can be measured using FiveThirtyEight poll grades. My prediction model did not filter out for high quality polls, so the quality of polls may impact the results from election forecasting as they may be more representative of society. I would also mention that polls need to do a better job in reaching out to hard to reach demographics like Hispanic Americans, and so I would be interested to use more polls that target these demographics for predictive models. 
+
+* To test the fourth hypothesis, we can do a cross validation 
 
 
 
