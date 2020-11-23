@@ -23,6 +23,8 @@ library(scales)
 library(performance)
 library(gt)
 library(plotly)
+library(grid)
+library(gridExtra)
 ```
 
 ```{r join,echo=FALSE, message=FALSE, warning=FALSE}
@@ -70,13 +72,25 @@ rmse_all = sqrt(mse_all)
 
 
 ```{r, echo=FALSE, warning=FALSE}
-# Plot results of actual results
-plot_usmap(data = joined, regions = "states", values = "winner_pv") +
+# Plot results of ensemble model
+pred_map <- plot_usmap(data = joined, regions = "states", values = "winner") +
   scale_fill_manual(breaks = c("Democrat", "Republican"),
                     values = c(muted("blue"), "red3")) +
   theme_void() +
   labs(fill = "Political Party",
-       title = "2020 Presidential Election Actual Results")
+       title = "2020 Presidential Election Prediction Map",
+       subtitle = "Weighting = 0.96*Poll + 0.04*Fundamental")
+
+# Plot results of actual results
+actual_map <- plot_usmap(data = joined, regions = "states", values = "winner_pv") +
+  scale_fill_manual(breaks = c("Democrat", "Republican"),
+                    values = c(muted("blue"), "red3")) +
+  theme_void() +
+  labs(fill = "Political Party",
+       title = "2020 Presidential Election Actual Map",
+       subtitle = "Live Update")
+
+grid.arrange(pred_map, actual_map, ncol = 2)
 
 
 ```
