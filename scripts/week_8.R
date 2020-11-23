@@ -356,7 +356,10 @@ pred_ensemble <- pred_poll %>%
   mutate(pred.upr = .96*pred.upr.x + 0.04*pred.upr.y) %>%
   mutate(winner = ifelse(pred > 50, "Republican", "Democrat")) %>%
   select(pred, pred.lwr, pred.upr, winner, state)
-  
+
+# Save data to csv file
+write_csv(pred_ensemble, "data/pred_ensemble.csv")
+
 # Plot results of ensemble model
 plot_usmap(data = pred_ensemble, regions = "states", values = "winner") +
   scale_fill_manual(breaks = c("Democrat", "Republican"),
