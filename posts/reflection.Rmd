@@ -71,7 +71,7 @@ rmse_all = sqrt(mse_all)
 
 
 
-```{r, echo=FALSE, warning=FALSE}
+```{r, echo=FALSE, warning=FALSE, fig.height = 5, fig.width = 10}
 # Plot results of ensemble model
 pred_map <- plot_usmap(data = joined, regions = "states", values = "winner") +
   scale_fill_manual(breaks = c("Democrat", "Republican"),
