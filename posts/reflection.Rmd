@@ -34,18 +34,25 @@ Now that the 2020 election is officially over and Biden was elected as the Presi
 ### Model Recap
 
 Let's first recap on my prediction model to get a better picture of what it was. 
-* My prediction model was an **ensemble model** that predicted the popular vote share for each state. 
+
+* My prediction model was an **ensemble model** that predicted the popular vote share for each state
+.
 * Given that the Time For Change Model was an inspiration, I decided to focus my model on historical republican vote share as Trump was the incumbent for the 2020 election and incumbency was one predictor in the Time For Change Model.
+
 * I decided to separate America into three categories - red states, blue states, and battleground states - for my model to adjust for overfitting. The grouping were based on how FiveThirtyEight grouped states. 
   + Red States - AK, IN, KS, MO, AL, AR, ID, KY, LA, MS, ND, OK, SD, MT, TN, WV, WY, SC, UT, NE
   + Blue States - CO, VA, CA, CT, DE, HI, IL, MD, MA, NJ, NY, OR, RI, VT, WA, ME, NM, NH
   + Battleground states - FL, IA, OH, GA, NC, MI, MN, PA, WI, NV, AZ, TX
+  
 * My model used the following data:
   + Historical polling, approval, and turnout data was based on data given from class
   + Historical and present economic data was sourced from the Bureau of Economic Analysis
   + Present polling and approval data was based on FiveThirtyEight’s forecast data
+  
 * In my model, I decided to classify approval, Q2 GDP growth, and turnout as fundamentals
+
 * Thus, **my ensemble model weighted the poll model (using only polls) by 0.96 and the fundamental model (using only fundamentals) by 0.04** as I weighted the model based on FiveThirtyEight's reasoning that polls are better predictors as the election nears since fundamentals become more noisy instead.
+
 * My final prediction using the ensemble model was that **Biden was projected to win 310 electoral votes while Trump is projected to win 228 votes**, meaning Biden would become president-elect of the United States.
 
 ### Patterns and Accuracy
