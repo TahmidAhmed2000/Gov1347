@@ -83,18 +83,25 @@ plot_usmap(data = joined, regions = "states", values = "winner_pv") +
 
 ```{r, echo=FALSE, warning=FALSE}
 # Plot forecast error
-plot_usmap(data = joined, regions = "states", values = "diff") +
-  theme_void() +
-  scale_fill_gradient2(
-    high = "blue",
-    mid = "white",
-    low = "red", 
-    breaks = c(-15, -10, -5, 0, 5, 10), 
-    name = "Difference") +
-  labs(title = "Forecast Error",
-       subtitle = "Difference betwween Trump's Actual and Predicted Two Party Vote Share") 
+joined$hover <- with(joined, paste(state, '<br>'))
 
+# give state boundaries a white border
+l <- list(color = toRGB("white"), width = 2)
+# specify some map projection/options
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showlakes = TRUE,
+  lakecolor = toRGB('white')
+)
 
+plot_geo(joined, locationmode = 'USA-states') %>%
+  add_trace(
+  z = ~diff, text = ~hover, locations = ~state,
+  color = ~diff, colors = 'Purples') %>%
+  layout(
+    title = "Difference between Trump's actual and predicted two party vote share <br>(Hover for breakdown)",
+    geo = g) %>% colorbar(title = "Difference")
 ```
 
 ```{r, echo=FALSE}
