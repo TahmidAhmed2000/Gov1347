@@ -193,10 +193,10 @@ joined %>%
 
 Now that we have went over my prediction model, it is important to look at possible hypotheses for the inaccuracies seen in my model. My model seemed to incorrectly predict the results for battleground states in particular and it is important we pay attention to the reasons why. Below are my hypotheses for explaining the overall inaccuracies of my model:
 
-1. One hypothesis to explain the inaccuracy of my model was that it failed to take into account the **recent voting trends in particular states**. For example, Georgia and Texas have been trending blue recently but my model failed to take note of this. This could be because my model relied more heavily on historical popular vote share and so since Georgia and Texas were traditionally red states, my model would predict the same for 2020.
-    * Moreover, my model failed to consider the **recent voting trends in populous counties**. For example, Miami-Dade County became much more red in 2020 than in 2016 and heavily helped Trump win Florida again. Likewise, Fulton county in Georgia heavily favored Joe Biden in 2020, which played a significant role in turning Georgia blue. Thus, it is important that prediction models take into consideration trends not just in states but in counties as well since some counties alone can significantly impact the overall result for the state it is in. 
+1. One hypothesis to explain the inaccuracy of my model was that it failed to take into account the **recent voting trends in particular states**. For example, Georgia and Texas have been trending blue recently but my model failed to take note of this. This could be because my model relied more heavily on historical popular vote share and polling and so since Georgia and Texas were traditionally red states, my model would predict the same for 2020.
+    * Moreover, my model failed to consider the **recent voting trends in populous counties**. For example, Miami-Dade County became much more red in 2020 than in 2016 and heavily helped Trump win Florida again. Likewise, Fulton County in Georgia heavily favored Joe Biden in 2020, which played a significant role in turning Georgia blue. Thus, it is important that prediction models take into consideration trends not just in states but in counties as well since some counties alone can significantly impact the overall result for the state it is in. 
   
-2. While my model took into consideration the expected increase in the overall turnout rate for the 2020 election, my model failed to take into consideration the **turnout rates for different demographics**.
+2. While my model took into consideration the expected increase in the overall turnout rate for the 2020 election, my model failed to take into consideration the **change in turnout rates for different demographics**.
     * For example, [Stacy Abrams](https://hbr.org/2020/11/how-biden-won-back-enough-of-the-white-working-class) played a crucial role in black voter-turnout in Georgia in favor for Biden. The same goes for the large Latinx turnout in Arizona and Nevada, which also helped Biden. However, there were also many Latinos that voted for Trump particularly in South Texas and Florida. 
     * Given the large turnout rates for some of these groups, they can thus play a significant role in forecasting the election. 
 
@@ -206,54 +206,40 @@ Now that we have went over my prediction model, it is important to look at possi
 
 4. Another hypothesis is that **using the state Q2 GDP growth rate as a fundamental variable may have hurt Trump more than it was supposed to**, especially in battleground states and traditionally red states. This is because economic predictors were very noisy this year due to a recession caused by Trump's handling of the Covid pandemic. 
     * Since the 2020 economy was an anomaly, it probably would be best to not use economic predictors in my model. 
-    * I would also mention that my model used 2020 Q2 GDP growth rate, which may not be reflective of the current economy as the election was taken place during Q3, and GDP growth rates are drastically different in Q3 from Q2. 
+    * I would also mention that my model used 2020 Q2 GDP growth rate, which may not be reflective of the current economy as the election was taken place during Q3, and GDP growth rates are drastically different in Q3 from Q2 in 2020. 
 
 ### Proposed tests to test hypotheses
 
 1. To test the first hypothesis that states and counties have partisan shifts (which can impact the accuracy of my model), I can look at recent voting trends in such states and counties. 
     * These states are likely battleground states and the counties are likely in battleground states. Moreover, we can look at how states and counties voted in the **2016 presidential election, the 2018 midterm election, and the 2020 election**. 
-    * We can thus analyze any trends using regressions and correlations and if we see any trends where certain states and counties are shifting blue or red, that is something to take note of. 
+    * We can thus analyze any trends using regressions and correlations and if we see any trends where certain states and counties are shifting towards blue or red, that is something to take note of. 
     * One example of a trend that we may see is how [southern Texas counties](https://www.texastribune.org/2020/11/16/split-ticket-voting-texas-republicans/) have been voting towards more red overtime in comparison to the 2008 election. 
 
 2. To test the second hypothesis, we can run a linear regression between the popular vote share for a presidential candidate (say the incumbent) and the **change in voter turnout for different demographics**. 
     * Through this regression, we may have a better idea of not only how changes in turnout rates from different demographics may impact election forecasting but also how they may affect democratic or republican popular vote share.     * Furthermore, it may also make sense to run the regression on a per county basis since it was evidenced from 2020 that certain counties see greater turnout rates from particular demographics than other counties. 
 
 3. To test the third hypothesis, one test that can be used is create a predictive linear model for the popular vote share for a candidate only using recent polls. 
-    * Given that historical polls may not be as predictive for today's elections, it may make sense to only use recent polls like from 2016 onward. This might be because there was never really a president with the character of Trump and so there may be **non-response bias** among republicans as some republicans may be afraid to alert pollsters that they will vote for Trump. 
+    * Given that historical polls may not be as predictive for today's elections, it may make sense to only use recent polls like from 2016 onward. This might be because there was never really a president that had the character of Trump and so there may be **non-response bias** among republicans as some republicans may be afraid to alert pollsters that they will vote for Trump. 
     * Moreover, it would also make sense to use polls that are high in quality, which can be measured using FiveThirtyEight poll grades. My prediction model did not filter out for high quality polls, so the quality of polls may impact the results from election forecasting as they may be more representative of society. 
     * I would also mention that polls need to do a better job in reaching out to **hard to reach demographics** like Hispanic Americans, and so I would be interested to use more polls that target these demographics for predictive models. 
 
 4. To test the fourth hypothesis, we can use my prediction model but not include economic predictors as part of the fundamental. 
     * As mentioned before, the 2020 economy was an anomaly, so it is best to not use economic predictors. 
-    * Moreover, it would be interesting to use economic predictors for the 2024 election and other future elections given that the economic predictors during those elections are not all over the place. If we do use economic predictors to predict those future elections, it makes sense to leave out the 2020 economic variables then. 
+    * Moreover, it would be interesting to use economic predictors to predict the 2024 election and other future elections given that the economic predictors during those elections are not all over the place. If we do use economic predictors to predict those future elections, it makes sense to leave out economic variables from 2020 then. 
 
 
 ### Changes to my model
 Now that we have a better grasp of understanding my model and where it went wrong, the following are changes I would like to do to my model:
 
-* I would use **recent polling **(with high grades from FiveThirtyEight) instead of historical polling in my model. This is because many states are recently having partisan shifts in vote share, and so historical polling may not be that helpful in predicting the 2020 election. Additionally, the 2020 Election map did not differ greatly from 2016, so using recent polling may be more accurate for forecasting. Plus, polls with high grades may mean they are higher in quality and thus are more representative of society.
+* I would use **recent polling**(with high grades from FiveThirtyEight) instead of historical polling in my model. This is because many states are recently having partisan shifts in vote share, and so historical polling may not reflect that. Additionally, the 2020 Election map did not differ greatly from 2016, so using recent polling may be more accurate for forecasting. Plus, polls with high grades may mean they are higher in quality and thus should be more representative of society.
 
-* Instead of accounting for overall change in turnout rate, it may make sense to focus on **expected change in turnout rate for particular demographics**, such as Hispanics and African Americans. This is because many battleground states were determined by the turnout from these demographic groups, evidenced by the Cuban vote in Miami-Dade County and the African American vote in Fulton county. 
+* Instead of accounting for overall change in turnout rate, it may make sense to focus on **expected change in turnout rate for particular demographics**, such as Hispanics and African Americans. This is because many battleground states were partially determined by the turnout from these demographic groups, evidenced by the Cuban vote in Miami-Dade County and the African American vote in Fulton County.
 
 * I would not use Q2 GDP growth rate or any economic predictor for this model because the 2020 economy is an anomaly and so historical economic predictors may not be good for predicting the 2020 election. 
 
-* I would also like to potentially make a prediction model that generates **county-level predictions** instead of state-level predictions. This is because it appears that the results of many states are determined by specific counties and so it would be noteworthy to make a prediction model that generates county-level predictions to see if it is more accurate. 
+* I would also like to potentially make a prediction model that generates **county-level predictions** instead of state-level predictions. This is because it appears that the results of many states are determined by specific counties and so it would be noteworthy to make a prediction model that generates county-level predictions to see if it is more accurate in forecasting.
 
 ### Conclusion
 
-I really enjoyed making my prediction model and learning from it. I now have a better grasp in making predictive models and I am eager to see how future elections will differ from the 2020 election and use my skills in the future. I want to thank my teaching fellow for Gov 1347, Sun Young Park, as well as Professor Ryan D. Enos and Soubhik Barari, for their teaching and help throughout the semester.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+I really enjoyed making my prediction model and learning from it. I now have a better grasp in making prediction models and I am eager to see how future elections will differ from the 2020 election and use my skills in the future. I want to thank my teaching fellow for Gov 1347, Sun Young Park, as well as Professor Ryan D. Enos and Soubhik Barari, for their teaching and help throughout the semester.
 
