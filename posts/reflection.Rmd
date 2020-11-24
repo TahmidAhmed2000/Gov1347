@@ -106,9 +106,9 @@ Above is a comparison between my predictions and the actual results of the 2020 
 + My prediction **overpredicted 4 electoral college votes** for Biden.
 
 ```{r, echo=FALSE}
-# Calculating the mse and rmse for all states
-mse_all = sum(joined$diff**2) / nrow(joined)
-rmse_all = sqrt(mse_all)
+# Calculate the mse and rmse 
+mse = sum(joined$diff**2) / nrow(joined)
+rmse = sqrt(mse)
 
 # correlation between actual and predicted
 corr <- joined %>% 
@@ -134,7 +134,7 @@ joined_plot <- joined %>%
        x = "Predicted Trump Two-Party Popular Vote",
        y = "Actual Trump Two-Party Popular Vote")
 
-# Switching to plotly
+# Use plotly
 ggplotly(joined_plot, tooltip = c("state", "R_pv2p", "pred"))
 ```
 
@@ -151,6 +151,7 @@ joined$hover <- with(joined, paste(state, '<br>'))
 
 # give state boundaries a white border
 l <- list(color = toRGB("white"), width = 2)
+
 # specify some map projection/options
 g <- list(
   scope = 'usa',
@@ -159,6 +160,7 @@ g <- list(
   lakecolor = toRGB('white')
 )
 
+# Plot map that shows forecast error
 plot_geo(joined, locationmode = 'USA-states') %>%
   add_trace(
   z = ~diff, text = ~hover, locations = ~state,
@@ -173,7 +175,7 @@ Furthermore, the map above shows the difference between Trump's actual and predi
 * It is interesting to note that states where Trump was greatly overpredicted or greatly underpredicted are states that are not battleground states. This makes sense because states that are traditionally red or blue and not battleground typically have less polling as there is a small chance that those states will flip. This is why we may see a state like Alaska with little polling where Trump is greatly overpredicted there.  
 
 ```{r, echo=FALSE}
-# create histogram
+# create error distribution
 ggplotly(
 joined %>% 
     ggplot(aes(diff)) +
