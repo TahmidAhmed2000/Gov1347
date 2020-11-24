@@ -241,7 +241,7 @@ Now that we have a better grasp of understanding my model and where it went wron
 
 ### Conclusion
 
-I really enjoyed making my prediction model and learning from it. I now have a better grasp in making predictive models and I am eager to see how future elections will differ from the 2020 election and use my skills in the future. I want to thank my teaching fellow for Gov 1347, Sun Young Park, as well as Professor Ryan D. Enos and Soubhik Barari, for their teaching and help throughout the semester
+I really enjoyed making my prediction model and learning from it. I now have a better grasp in making predictive models and I am eager to see how future elections will differ from the 2020 election and use my skills in the future. I want to thank my teaching fellow for Gov 1347, Sun Young Park, as well as Professor Ryan D. Enos and Soubhik Barari, for their teaching and help throughout the semester.
 
 
 
