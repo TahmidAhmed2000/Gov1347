@@ -49,7 +49,7 @@ Let's first recap on my prediction model to get a better picture of what it was.
   + Historical and present economic data was sourced from the Bureau of Economic Analysis
   + Present polling and approval data was based on FiveThirtyEight’s forecast data
   
-* In my model, I decided to classify approval, Q2 GDP growth, and turnout as fundamentals.
+* In my model, I decided to classify approval, Q2 GDP growth, and change in turnout as fundamentals.
 
 * Thus, **my ensemble model weighted the poll model (using only polls) by 0.96 and the fundamental model (using only fundamentals) by 0.04** as I weighted the model based on FiveThirtyEight's reasoning that polls are better predictors as the election nears since fundamentals become more noisy instead.
   + Trump vote share = 0.96(Poll) + 0.04(Fundamental)
