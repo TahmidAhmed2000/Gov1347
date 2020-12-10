@@ -7,8 +7,8 @@
 # [Week 6: A Look into how Demographic Changes Play a Role in Elections](posts/week_6.md)
 # [Week 7: How Covid-19 may Impact Incumbent Vote Share?](posts/week_7.md)
 # [Week 8: Who Will Win the 2020 Election?](posts/week_8.md)
-# [Post Election Reflection](posts/reflection.html)
-# [Post Election Narrative](posts/narrative.md)
+# [Post-Election Reflection](posts/reflection.html)
+# [Post-Election Narrative](posts/narrative.md)
 
 
 
