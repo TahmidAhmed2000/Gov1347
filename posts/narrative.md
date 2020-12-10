@@ -15,7 +15,7 @@ Now that the 2020 election is over, there is speculation as to why certain candi
 
 For this narrative, I will be using a testable implication. A testable implication does not necessarily involve a definitive test of the truth of the narrative which involves difficult questions of casualty and unavailable data, but an implication that involves initial evidence that the data is consistent or inconsistent with claims. Therefore, the testable implication for this narrative is:
 
-**If Trump's response to the death of Geroge Floyd lost Black votes, then we should see a decrease in Black support for Trump post-death of George Floyd.**
+**If Trump's response to the death of George Floyd lost Black votes, then we should see a decrease in Black support for Trump post-death of George Floyd.**
 
 This testable implication is justifiable for this narrative because a decrease in Black support for Trump does not definitely prove the claim that Trump's response to the death of George Floyd lost Black votes; however, a decrease in Black support could be a piece of evidence that Trump's response to the death of George Floyd lost Black votes. Moreover, this testable implication can be tested as there is data on Trump's approval ratings and support among African Americans before and after the death of George Floyd.
 
