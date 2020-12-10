@@ -12,4 +12,23 @@ Moreover, this narrative is important to test in the context of the various elec
 
 # Testable Implication
 
-A testable implication is 
+For this narrative, I will be using a testable implication. A testable implication is not necessarily a definitive test of the truth that involves difficulty questions of casualty and unavailable data, but an implication that involves initial evidence that the data is consistent or inconsistent with claims. Therefore, testable implication for this narrative is:
+
+**If Trump's response to the death of Geroge Floyd lost black votes, then we should see a decrease in black support for Trump post-death of George Floyd.**
+
+This testable implication is justifiable for this narrative because a decrease in black support for Trump does not definitely prove the claim that Trump's response to the death of George Floyd lost black votes; however, a decrease in black support could be a piece of evidence. Moreover, this testable implication can be tested in an effective manner as there is data on Trump's approval ratings and support after the death of George Floyd, which can be collected for the testable implication. 
+
+# Data
+
+
+
+
+
+
+
+
+
+
+
+
+
