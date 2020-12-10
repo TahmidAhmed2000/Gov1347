@@ -29,7 +29,18 @@ The data I used for the testable implication was sourced from Democracy Fund + U
 ![](../figures/Trump_blackapprove.png)
 Figure 1.
 
-According to Figure 1, we can see Trump's approval rating leading up to the death of George Floyd and after the death of Geroge Floyd. We can see that his approval rating among African Americans dropped somewhat sharply by 5 percentage points after the death. Furthermore, we can also see that his approval rating among black people did not reach the same peak it did on 5/21 - 5/27, which was 21%, given the available data. Therefore, the results of this test does support the narrative to a degree. This is because we can see that his approval ratings decreased among black people, which may have contributed to the outcome of the election. However, Trump's approval ratings started to increase on 6/18 where his approval rating reached 18% on 6/25 - 7/1. This might mean that Trump's response to the death of George Floyd may not have had a very significant impact on black support since his approval rating among African Americans was steadily increasing about a month after the death. 
+According to Figure 1, we can see Trump's approval rating leading up to the death of George Floyd and after the death of Geroge Floyd. We can see that his approval rating among African Americans dropped somewhat sharply by 5 percentage points after the death. Furthermore, we can also see that his approval rating among black people did not reach the same peak it did on 5/21 - 5/27, which was 21%, given the available data. Therefore, the results of this test does support the narrative to a degree. This is because we can see that his approval ratings decreased among black people, which may have contributed to the outcome of the election. However, Trump's approval ratings started to increase on 6/18 where his approval rating reached 18% on 6/25 - 7/1. This might mean that Trump's response to the death of George Floyd may not have had a very significant impact on black support since his approval rating among African Americans was steadily increasing about a month after the death. This could also mean that Trump's loss in black support after the death may have been temporary, evidenced by the sharp decline right after the death but a steady increase about a month after the death. 
+
+# Additional Graphics
+
+![](../figures/Biden_blacksupport.png)
+Figure 2.
+
+![](../figures/Trump_blacksupport.png)
+Figure 3. 
+
+
+
 
 
 
