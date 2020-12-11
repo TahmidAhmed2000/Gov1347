@@ -9,7 +9,7 @@ Now that the 2020 election is over, there is speculation as to why certain candi
 + Many [news outlets](https://www.theguardian.com/us-news/2020/jun/01/george-floyd-donald-trump-black-lives-matter) deemed Trump as "clueless" in regards to the disadvantages faced by African Americans and his refusal to denounce white supremacy and police brutality clearly after the death may negatively impact him during the election and may cost him Black support.
 + Moreover, this narrative is important to test in the context of the various election-related variables we have discussed this semester in Gov 1347. One such election-related variable we learned was shocks. 
   + Just like how we studied the effects of the Covid-19 pandemic on the election outcome where the effects of the pandemic are considered a shock, we can also consider the bigger picture about the rise of racial tension after the death of George Floyd as a shock that can impact Trump's Black support. 
-  + The racial tension is even more evident when you consider how Trump reacted to protests against racism and police brutality with [Federal Forces and apatheic diction](https://www.nbcwashington.com/news/national-international/trump-to-send-federal-agents-to-chicago-maybe-other-cities/2367006/) in his speeches afterwards.  
+  + The racial tension is even more evident when you consider how Trump reacted to protests against racism and police brutality with [Federal Forces and apathetic diction](https://www.nbcwashington.com/news/national-international/trump-to-send-federal-agents-to-chicago-maybe-other-cities/2367006/) in his speeches afterwards.  
 
 ## Testable Implication
 
