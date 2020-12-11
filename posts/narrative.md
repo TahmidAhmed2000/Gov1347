@@ -29,7 +29,7 @@ The data I used for the testable implication was sourced from **Democracy Fund +
 ![](../figures/Trump_blackapprove.png)
 Figure 1. Trump's approval ratings among African Americans
 
-+ According to Figure 1, we can see Trump's approval rating among African Americans leading up to the death of George Floyd and after the death of Geroge Floyd. We can see that his approval rating among African Americans **dropped somewhat sharply by 5 percentage points** (to 16%) right after the death. 
++ According to Figure 1, we can see Trump's approval rating among African Americans leading up to the death of George Floyd and after the death of George Floyd. We can see that his approval rating among African Americans **dropped somewhat sharply by 5 percentage points** (to 16%) right after the death. 
 + Furthermore, we can also see that his approval rating among Black people did not reach the same peak it did on 5/21 - 5/27, which was **21%**, given the available data.
 + Therefore, **the results of this test does support the narrative to a degree**. This is because we can see that his approval ratings decreased among Black people after the death, which may potentially have contributed to the outcome of the election. However, Trump's approval ratings started to increase on 6/18 where his approval rating reached **18% on 6/25 - 7/1**. 
   + This might mean that Trump's response to the death of George Floyd may not have had a very significant impact on Black support in the long run since his approval rating among African Americans was steadily increasing about a month after the death. 
